@@ -13,5 +13,11 @@ public class Customer {
 	private String password;
 	private Double balance;
 	
+	public Customer() {
+		super();
+		System.out.println("hello");
+	}
+	
 
+	
 }

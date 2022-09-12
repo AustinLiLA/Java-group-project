@@ -12,6 +12,9 @@ public class Customer {
 	private String email;
 	private String password;
 	private Double balance;
+	public Customer() {
+		super();
+	}
 	
 
 }

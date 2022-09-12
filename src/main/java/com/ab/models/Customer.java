@@ -16,10 +16,6 @@ public class Customer {
 		super();
 	}
 	
-	public Customer() {
-		super();
-		System.out.println("hello");
-	}
 	
 
 	

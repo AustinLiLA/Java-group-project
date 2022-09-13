@@ -22,8 +22,10 @@ public class StockServiceImpl implements StockService {
 		return null;
 	}
 
+	
+
 	@Override
-	public Stock displayStockById(int id) {
+	public Stock displayStockByName(String name) {
 		// TODO Auto-generated method stub
 		return null;
 	}

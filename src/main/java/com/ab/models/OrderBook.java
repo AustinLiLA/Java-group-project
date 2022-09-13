@@ -35,6 +35,26 @@ public class OrderBook {
 		this.orderQuantity = orderQuantity;
 		this.orderPrice = orderPrice;
 	}
+	
+	
+
+
+	public OrderBook( Double orderPrice,int orderQuantity,String orderType) {
+		super();
+		this.orderType = orderType;
+		this.orderQuantity = orderQuantity;
+		this.orderPrice = orderPrice;
+	}
+	
+	
+	public OrderBook(String orderType, int orderQuantity, Double orderPrice, int customerId, int stockId) {
+		super();
+		this.orderType = orderType;
+		this.orderQuantity = orderQuantity;
+		this.orderPrice = orderPrice;
+		this.customerId = customerId;
+		this.stockId = stockId;
+	}
 
 
 	public int getOrderId() {

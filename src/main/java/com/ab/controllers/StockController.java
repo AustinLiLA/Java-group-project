@@ -21,8 +21,7 @@ public class StockController {
 		
 		ModelAndView mv = new ModelAndView();
 		
-		List<Stock> stocks = stockService.displayStocks();
-		
+		List<Stock> stocks = stockService.displayStocks();		
 		
 		mv.addObject("stockList",stocks); 
 		

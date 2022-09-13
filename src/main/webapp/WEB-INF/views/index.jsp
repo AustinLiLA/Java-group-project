@@ -25,7 +25,7 @@
      </form>
      
      
-     New Customer? <a href="registration.jsp">Click here to register</a>
+     New Customer? <a href="registration">Click here to register</a>
      <br>
    
 </body>

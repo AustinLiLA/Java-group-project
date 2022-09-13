@@ -14,7 +14,7 @@
    
     <h1> Registration Form</h1>
     
-    <form action="http://localhost:8080/order-book-group-a/CustomerController">
+    <form action="http://localhost:8080/order-book-group-a/registration">
       
       FirstName: <input type="text" name="LastName"/> <br>
       
@@ -30,7 +30,7 @@
       
       </form>
       
-      Registered Customer? <a href="login.jsp"> Click here to login</a>
+      Registered Customer? <a href="login"> Click here to login</a>
       
 </body>
 </html>

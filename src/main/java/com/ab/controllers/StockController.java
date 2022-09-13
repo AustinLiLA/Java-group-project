@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -18,19 +17,22 @@ public class StockController {
 	private StockService stockService;
 	
 	@GetMapping("/stocks")
-	public ModelAndView allStocks() {
+	public ModelAndView allStocks(){
 		
 		ModelAndView mv = new ModelAndView();
 		
 		List<Stock> stocks = stockService.displayStocks();
+		
+		
 		mv.addObject("stockList",stocks); 
 		
 		mv.setViewName("stock_list");
 		
 		return mv; // represent "view name"/jsp file name
 		
-
 	}
+	
+	
 	
 	
 }

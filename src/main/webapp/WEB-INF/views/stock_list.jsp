@@ -17,10 +17,11 @@
   </tr>
     <c:forEach items="${stockList}" var="s">
         <tr>
-            <td><c:out value="${s.stockName}" /></td>
+            <td><c:out value="${s.stockName	}" /></td>
             <td><c:out value="${s.stockPrice}" /></td>
             <td><c:out value="${s.stockQuantity}" /></td>
             <td><c:out value="${s.stockRegion}" /></td>
+            <td><button type="button">View</button></td>
         </tr>
     </c:forEach>
 </table>

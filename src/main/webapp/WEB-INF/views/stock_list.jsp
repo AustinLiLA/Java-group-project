@@ -21,7 +21,7 @@
             <td><c:out value="${s.stockPrice}" /></td>
             <td><c:out value="${s.stockQuantity}" /></td>
             <td><c:out value="${s.stockRegion}" /></td>
-            <td><button type="button" onclick="location.href='http://localhost:8080/stocks/chart/${s.stockName}/${s.stockRegion}';">View</button></td>
+            <td><button type="button" onclick="location.href='http://localhost:8080/stocks/chart/${s.stockName}/${s.stockRegion}/${s.stockQuantity}';">View</button></td>
         </tr>
     </c:forEach>
 </table>

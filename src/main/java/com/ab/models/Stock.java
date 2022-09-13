@@ -18,11 +18,6 @@ private String stockRegion;
 private int stockQuantity;
 private Double stockPrice;
 
-//@ManyToOne(cascade= CascadeType.ALL)
-//@JoinColumn(name = "FK_customerId")
-private int customerId;
-
-
 
 
 public Stock() {
@@ -78,13 +73,6 @@ public void setStockPrice(Double stockPrice) {
 	this.stockPrice = stockPrice;
 }
 
-public int getCustomerId() {
-	return customerId;
-}
-
-public void setCustomerId(int customerId) {
-	this.customerId = customerId;
-}
 
 @Override
 public String toString() {

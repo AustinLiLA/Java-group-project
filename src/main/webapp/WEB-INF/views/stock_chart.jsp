@@ -135,7 +135,6 @@ window.onload = function () {
   <input class="w-full px-2 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"name="FirstName"required type="text" id="quantity" name="quantity"><br>
   <label for="order"class="block">Order Type:</label>
   <select name="order" id="order">
-
     <option value="buy">Buy</option>
     <option value="sell">Sell</option>
   </select>
@@ -143,10 +142,8 @@ window.onload = function () {
   <input class="w-full px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900"type="submit" value="Place Order">
   </div>
 </form>
-
 </div>
 </div>
-
 </body>
 
 </html>

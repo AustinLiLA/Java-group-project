@@ -29,15 +29,15 @@ public class OrderBookController {
 	
 	@Autowired
 	private OrderBookService orderBookService;
-	
+	/*
 	@PostMapping("/stocks/orderbook/{customerId}/{orderPrice}/{orderQuantity}/{orderType}/{stockId}")
 	public OrderBook newOrder(@PathVariable("customerId") int customerId,@PathVariable("orderPrice") double orderPrice,@PathVariable("orderQuantity") int orderQuantity,@PathVariable("orderType") String orderType,@PathVariable("stockId") int stockId) {
 		
 		OrderBook or = new OrderBook(orderType, orderQuantity, orderPrice, customerId, stockId);
 		System.out.println(or);
-		return orderBookService.newOrder(or);
+		return orderBookService.newOrder(or); 
 		
-	}
+	} */
 	
 //	@PostMapping("/stocks/orderbook")
 //	public OrderBook newOrder(@ModelAttribute OrderBook or, @ModelAttribute("session_customer") Customer customer) {

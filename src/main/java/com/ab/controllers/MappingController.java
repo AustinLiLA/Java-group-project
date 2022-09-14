@@ -3,6 +3,9 @@ package com.ab.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ab.models.OrderBook;
@@ -35,22 +38,32 @@ public class MappingController {
 		
 	}
 	
-	@GetMapping("/stocks/orderbook/{price}/{quantity}/{order}")
-	public ModelAndView orderbook(@PathVariable("price") double price,@PathVariable("quantity") int quantity,@PathVariable("order") String order) {
+	@GetMapping("/stocks/orderbook/{orderPrice}/{orderQuantity}/{orderType}")
+	//@RequestMapping(path = "/stocks/orderbook/{orderPrice}/{orderQuantity}/{orderType}")
+	public ModelAndView orderbook(@PathVariable("orderPrice") double orderPrice,@PathVariable("orderQuantity") int orderQuantity,@PathVariable("orderType") String orderType) {
 		
 		ModelAndView mv = new ModelAndView();
 
 		OrderBook ob = new OrderBook();
 		
-		ob.setOrderPrice(price);
-		ob.setOrderQuantity(quantity);
-		ob.setOrderType(order);
-		
+		ob.setOrderPrice(orderPrice);
+		ob.setOrderQuantity(orderQuantity);
+		ob.setOrderType(orderType);
+	
 		mv.addObject("orderbook",ob); 
 		
         mv.setViewName("order_book");
 		
 		return mv; 
 	}
+	
+//	@GetMapping("/stocks/orderbook/{price}/{quantity}/{order}")
+//	public String getOrderBook() {
+//		
+//		return "order_book";
+//	}
+	
+
+	
 
 }

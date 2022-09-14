@@ -43,7 +43,7 @@
 		</div>
 	</nav>
 
-
+<h1> You have registered as <%= session.getAttribute("session_customer") %></h1>
 <div class="p-20">
 	<table border="1"
 		class="flex justify-center table-auto border-separate border-spacing-2 border border-slate-500 ">

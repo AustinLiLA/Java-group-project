@@ -124,16 +124,6 @@ window.onload = function () {
 <center><label><h1><b>${stock.stockQuantity}</b></h1></label></center>
 
 <div id="chartContainer" style="height: 450px; width: 100%;"></div>
-<<<<<<< HEAD
-  <br><br>
-<form action="http://localhost:8080/stocks/orderbook/" method="GET">
-  <label for="price">Stock Price:</label>
-  <input type="text" id="price" name="price"><br><br>
-  <label for="quantity">Quantity:</label>
-  <input type="text" id="quantity" name="quantity"><br><br>
-  <label for="order">Order Type:</label>
-  <select name="order" id="order" >
-=======
   
   <div class="flex items-center justify-center min-h-screen bg-blue-500">
   <div class="px-8 py-6 mx-4 mt-4 text-left bg-white shadow-lg md:w-1/3 lg:w-1/3 sm:w-1/3  rounded-lg">
@@ -145,8 +135,6 @@ window.onload = function () {
   <input class="w-full px-2 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"name="FirstName"required type="text" id="quantity" name="quantity"><br>
   <label for="order"class="block">Order Type:</label>
   <select name="order" id="order">
-
->>>>>>> e642c18781b6d0ac6d032fc61ce69404774e2ddc
     <option value="buy">Buy</option>
     <option value="sell">Sell</option>
   </select>
@@ -154,10 +142,8 @@ window.onload = function () {
   <input class="w-full px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900"type="submit" value="Place Order">
   </div>
 </form>
-
 </div>
 </div>
-
 </body>
 
 </html>

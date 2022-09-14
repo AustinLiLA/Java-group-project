@@ -9,5 +9,6 @@ import com.ab.models.Stock;
 public interface StockService {
 	
 	public List<Stock> displayStocks();
+	
 
 }

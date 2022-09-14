@@ -5,13 +5,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ab.models.Customer;
+import com.ab.models.OrderBook;
 import com.ab.models.Stock;
 import com.ab.servicies.CustomerService;
 
@@ -22,6 +22,7 @@ public class MappingController {
 	@Autowired 
 	private CustomerService customerService;
 
+	
 	@GetMapping("/stocks/chart")
 	public String chart() {			
 		return "stock_chart"; 
@@ -76,5 +77,8 @@ public class MappingController {
     		return "reg_faiure";
     	}
     }
+    
+
+
 
 }

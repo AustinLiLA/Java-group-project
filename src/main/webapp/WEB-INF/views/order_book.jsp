@@ -44,5 +44,34 @@
 
 
 OrderBook
+
+<div class="p-20">
+	<table border="1"
+		class="flex justify-center table-auto border-separate border-spacing-2 border border-slate-500 ">
+		
+		<tr>
+     <th class="border border-slate-700">ID</th>
+     <th class="border border-slate-700">STOCK ID</th>
+     <th class="border border-slate-700">CUSTOMER ID</th>
+     <th class="border border-slate-700">TYPE</th>
+     <th class="border border-slate-700">PRICE</th>
+     <th class="border border-slate-700">QUANTITY</th>
+ 
+     
+  </tr>
+    <c:forEach items="${orderBookList}" var="od">
+        <tr>
+            <td class="border border-slate-800"><c:out value="${od.orderId}" /></td>
+            <td class="border border-slate-800"><c:out value="${od.stockId}" /></td>
+            <td class="border border-slate-800"><c:out value="${od.customerId}" /></td>
+            <td class="border border-slate-800"><c:out value="${od.orderType}" /></td>
+            <td class="border border-slate-800"><c:out value="${od.orderPrice}" /></td>
+            <td class="border border-slate-800"><c:out value="${od.orderQuantity}" /></td>
+            
+            
+            <td class="border border-slate-800"><button type="button" onclick="location.href='http://localhost:8080/stocks/chart/${s.stockId}/${s.stockName}/${s.stockQuantity}/${s.stockRegion}';">View</button></td>
+        </tr>
+    </c:forEach>
+		</div>
 </body>
 </html>

@@ -1,7 +1,6 @@
 package com.ab.servicies;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,4 +20,7 @@ public class StockServiceImpl implements StockService {
 	public List<Stock> displayStocks() {
 		return stockRepository.findAll();
 	}
+	
+
+
 }

@@ -132,7 +132,7 @@ window.onload = function () {
   <label for="price"class="block">Stock Price:</label>
   <input class="w-full px-2 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600 flex items-center"name="FirstName"required type="text" id="price" name="price"><br>
   <label for="quantity"class="block">Quantity:</label>
-  <input class="w-full px-2 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"name="FirstName"required type="text" id="quantity" name="quantity"><br>
+  <input class="w-full px-2 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"name="FirstName"required type="number" id="quantity" name="quantity" max="${stock.stockQuantity}"><br>
   <label for="order"class="block">Order Type:</label>
   <select name="order" id="order">
 
@@ -140,6 +140,7 @@ window.onload = function () {
     <option value="sell">Sell</option>
   </select>
   <br><br>
+  
   <input class="w-full px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900"type="submit" value="Place Order">
   </div>
 </form>

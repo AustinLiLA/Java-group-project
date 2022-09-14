@@ -19,6 +19,12 @@ public class MappingController {
 	@Autowired 
 	private CustomerService customerService;
 	
+	
+	@GetMapping("/stocks/chart")
+	public String chart() {			
+		return "stock_chart"; 
+	}
+	
 	@GetMapping("/stocks/chart/{stockName}/{stockRegion}")
 	public String chart(@PathVariable("stockName") String stockName,@PathVariable("stockRegion") String stockRegion) {
 		
@@ -28,7 +34,6 @@ public class MappingController {
 	
 	@GetMapping("/stocks/orderbook")
 	public String orderbook() {
-		
 		return "order_book"; 
 	}
 	

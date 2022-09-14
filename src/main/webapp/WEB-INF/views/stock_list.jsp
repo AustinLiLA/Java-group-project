@@ -17,7 +17,7 @@
 		class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
 		<div
 			class="container flex flex-wrap justify-between items-center mx-auto">
-			<a href="index.jsp" class="flex"> <span
+			<a href="http://localhost:8080/stocks" class="flex"> <span
 				class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Trading Platform</span>
 			</a>
 			 <!-- <button data-collapse-toggle="mobile-menu" type="button"
@@ -27,9 +27,9 @@
 			<div class="hidden w-full md:block md:w-auto" id="mobile-menu">
 				<ul
 					class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
-					<li><a href="/"
+					<li><a href="http://localhost:8080/stocks"
 						class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-						aria-current="page">Search Stock</a></li>
+						aria-current="page">Stocks</a></li>
 					<li><a href="http://localhost:8080/login"
 						class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
 						aria-current="page">Login</a></li>

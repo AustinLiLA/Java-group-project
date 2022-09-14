@@ -1,7 +1,6 @@
 package com.ab.servicies;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,17 +21,6 @@ public class StockServiceImpl implements StockService {
 		return stockRepository.findAll();
 	}
 	
-	@Override
-	public Optional<Stock> displayStockById(int id){
-	
-		return stockRepository.findById(id) ;
-	}
-	
-//	@Override
-//	public Optional<Stock> displayStockByName(String stockName){
-//	
-//		return stockRepository.displayStockByName(stockName) ;
-//	}
 
 
 }

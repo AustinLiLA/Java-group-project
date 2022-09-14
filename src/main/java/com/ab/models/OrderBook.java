@@ -14,7 +14,7 @@ public class OrderBook {
 	
 	private String orderType;
 	private int orderQuantity;
-	private Double orderPrice;
+	private double orderPrice;
 	
 //	@OneToMany(cascade= CascadeType.ALL)
 //	@JoinColumn(name = "FK_customerId")
@@ -28,12 +28,32 @@ public class OrderBook {
 	}
 
 	
-	public OrderBook(int orderId, String orderType, int orderQuantity, Double orderPrice) {
+	public OrderBook(int orderId, String orderType, int orderQuantity, double orderPrice) {
 		super();
 		this.orderId = orderId;
 		this.orderType = orderType;
 		this.orderQuantity = orderQuantity;
 		this.orderPrice = orderPrice;
+	}
+	
+	
+
+
+	public OrderBook( double orderPrice,int orderQuantity,String orderType) {
+		super();
+		this.orderType = orderType;
+		this.orderQuantity = orderQuantity;
+		this.orderPrice = orderPrice;
+	}
+	
+	
+	public OrderBook(String orderType, int orderQuantity, double orderPrice, int customerId, int stockId) {
+		super();
+		this.orderType = orderType;
+		this.orderQuantity = orderQuantity;
+		this.orderPrice = orderPrice;
+		this.customerId = customerId;
+		this.stockId = stockId;
 	}
 
 
@@ -67,12 +87,12 @@ public class OrderBook {
 	}
 
 
-	public Double getOrderPrice() {
+	public double getOrderPrice() {
 		return orderPrice;
 	}
 
 
-	public void setOrderPrice(Double orderPrice) {
+	public void setOrderPrice(double orderPrice) {
 		this.orderPrice = orderPrice;
 	}
 

@@ -17,19 +17,22 @@ public class StockController {
 	private StockService stockService;
 	
 	@GetMapping("/stocks")
-	public ModelAndView allStocks() {
+	public ModelAndView allStocks(){
 		
 		ModelAndView mv = new ModelAndView();
 		
-		List<Stock> stocks = stockService.displayStocks();
+		List<Stock> stocks = stockService.displayStocks();		
+		
 		mv.addObject("stockList",stocks); 
 		
 		mv.setViewName("stock_list");
 		
 		return mv; // represent "view name"/jsp file name
 		
-
 	}
+	
+	
+	
 	
 }
 

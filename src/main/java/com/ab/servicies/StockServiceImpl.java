@@ -21,5 +21,4 @@ public class StockServiceImpl implements StockService {
 	public List<Stock> displayStocks() {
 		return stockRepository.findAll();
 	}
-	
 }

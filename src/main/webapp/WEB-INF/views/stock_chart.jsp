@@ -117,6 +117,11 @@ window.onload = function () {
 		</div>
 	</nav>
 	<br>
+	
+<center><label><h1><b>${stock.stockName} Trading StockChart</b></h1></label></center>
+<center><label><h1><b>${stock.stockRegion}</b></h1></label></center>
+<center><label><h1><b>${stock.stockQuantity}</b></h1></label></center>
+
 <div id="chartContainer" style="height: 450px; width: 100%;"></div>
   
   <div class="flex items-center justify-center min-h-screen bg-blue-500">

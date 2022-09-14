@@ -57,6 +57,8 @@ public void setStockRegion(String stockRegion) {
 	this.stockRegion = stockRegion;
 }
 
+
+
 public int getStockQuantity() {
 	return stockQuantity;
 }

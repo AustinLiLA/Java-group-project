@@ -8,6 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+<center><label><h1><b>${orderbook.price}</b></h1></label></center>
+<center><label><h1><b>${orderbook.quantity}</b></h1></label></center>
+<center><label><h1><b>${orderbook.order}</b></h1></label></center>
 <!-- NAVBAR -->
 	<nav
 		class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">

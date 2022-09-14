@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,8 +21,7 @@ public class MappingController {
 	
 	@Autowired 
 	private CustomerService customerService;
-	
-	
+
 	@GetMapping("/stocks/chart")
 	public String chart() {			
 		return "stock_chart"; 

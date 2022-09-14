@@ -61,7 +61,7 @@ window.onload = function () {
    
   
   function updateChart(xstart, ystart, length, interval) {
-	const demo = document.getElementById('price');
+	const demo = document.getElementById('price');	
     var xVal = xstart, yVal = ystart;
     for(var i = 0; i < length; i++) {
       yVal = yVal +  Math.round(5 + Math.random() *(-5-5));
@@ -86,6 +86,7 @@ window.onload = function () {
 </script>
 </head>
 <body>
+
 <!-- NAVBAR -->
 	<nav
 		class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
@@ -134,6 +135,7 @@ window.onload = function () {
   <input class="w-full px-2 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"name="FirstName"required type="text" id="quantity" name="quantity"><br>
   <label for="order"class="block">Order Type:</label>
   <select name="order" id="order">
+
     <option value="buy">Buy</option>
     <option value="sell">Sell</option>
   </select>
@@ -141,8 +143,10 @@ window.onload = function () {
   <input class="w-full px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900"type="submit" value="Place Order">
   </div>
 </form>
+
 </div>
 </div>
 
 </body>
+
 </html>

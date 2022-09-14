@@ -105,17 +105,24 @@ window.onload = function () {
 					<li><a href="http://localhost:8080/stocks"
 						class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
 						aria-current="page">Stocks</a></li>
-					<li><a href="http://localhost:8080/login"
-						class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-						aria-current="page">Login</a></li>
-					<li><a href="http://localhost:8080/register" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-						aria-current="page"
-						>Register</a>
-					</li>
+
+
+					<%if (session.getAttribute("session_customer") != null) {%>
 						<li><a href="http://localhost:8080/logout" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
 						aria-current="page"
 						>Logout</a>
 					</li>
+					<% } else {%>
+					<li><a href="http://localhost:8080/register" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+						aria-current="page"
+						>Register</a>	
+					</li>
+						</li>
+						<li><a href="http://localhost:8080/login" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+						aria-current="page"
+						>Login</a>
+					</li>
+					<% } %>
 				</ul>
 				
 			</div>
@@ -131,19 +138,18 @@ window.onload = function () {
   
   <div class="flex items-center justify-center min-h-screen bg-blue-500">
   <div class="px-8 py-6 mx-4 mt-4 text-left bg-white shadow-lg md:w-1/3 lg:w-1/3 sm:w-1/3  rounded-lg">
-<form action="/stocks/orderbook" 	method="GET">
+<form action="/stocks/orderbook" 	method="POST">
 <div class="mt-4">
   <label for="price"class="block">Stock Price:</label>
-  <input class="w-full px-2 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600 flex items-center"name="FirstName"required type="text" id="price" name="price"><br>
+  <input class="w-full px-2 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600 flex items-center"required type="text" id="price" name="price"><br>
   <label for="quantity"class="block">Quantity:</label>
-  <input class="w-full px-2 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"name="FirstName"required type="number" id="quantity" name="quantity" max="${stock.stockQuantity}"><br>
+  <input class="w-full px-2 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"required type="number" id="quantity" name="quantity" max="${stock.stockQuantity}"><br>
   <label for="order"class="block">Order Type:</label>
   <select name="order" id="order">
     <option value="buy">Buy</option>
     <option value="sell">Sell</option>
   </select>
   <br><br>
-  
   <input class="w-full px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900"type="submit" value="Place Order">
   </div>
 </form>

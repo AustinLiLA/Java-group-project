@@ -13,12 +13,13 @@ public class Customer {
 	private String password;
 	private Double balance;
 	
-	
+
 	public Customer() {
 		
 		
 	}
 	
+
 	public Customer(int customerId, String firstName, String lastName, String email, String password) {
 		super();
 		this.customerId = customerId;
@@ -27,6 +28,7 @@ public class Customer {
 		this.email = email;
 		this.password = password;
 	}
+
 
 	public Customer(int customerId, String firstName, String lastName, String email, String password, Double balance) {
 		super();
@@ -86,11 +88,15 @@ public class Customer {
 		this.balance = balance;
 	}
 
+
 	@Override
 	public String toString() {
 		return "Customer [customerId=" + customerId + ", firstName=" + firstName + ", lastName=" + lastName + ", email="
 				+ email + ", password=" + password + ", balance=" + balance + "]";
 	}
+
 	
 	
+	
+
 }

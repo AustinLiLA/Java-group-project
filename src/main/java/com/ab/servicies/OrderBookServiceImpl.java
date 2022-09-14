@@ -1,5 +1,7 @@
 package com.ab.servicies;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,12 @@ public class OrderBookServiceImpl implements OrderBookService {
 	public OrderBook newOrder(OrderBook orderBook) {
 		
 		return orderBookRepository.save(orderBook);
+	}
+	
+	@Override
+	public List<OrderBook> displayOrderBooks(){
+		
+		return  orderBookRepository.findAll();
 	}
 
 }

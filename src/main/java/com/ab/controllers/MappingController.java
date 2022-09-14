@@ -15,6 +15,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ab.models.Customer;
+import com.ab.models.OrderBook;
 import com.ab.models.Stock;
 import com.ab.servicies.CustomerService;
 
@@ -25,6 +26,7 @@ public class MappingController {
 	@Autowired 
 	private CustomerService customerService;
 
+	
 	@GetMapping("/stocks/chart")
 	public String chart() {			
 		return "stock_chart"; 
@@ -88,6 +90,7 @@ public class MappingController {
     		return "reg_faiure";
     	}
     }
+
       
     @GetMapping("/logout")
     public String logout(SessionStatus session) {
@@ -97,6 +100,7 @@ public class MappingController {
     	return "stock_list";
     	
     }
+
 
 
 }

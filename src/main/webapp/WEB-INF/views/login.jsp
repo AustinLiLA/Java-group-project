@@ -27,9 +27,7 @@
 					<li><a href="http://localhost:8080/stocks"
 						class="block py-2 pr-4 pl-3 text-white bg-blue-700 text-1xl rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
 						aria-current="page">Stocks</a></li>
-					<li><a href="http://localhost:8080/stock_chart"
-						class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-						aria-current="page">Login</a></li>
+					
 					<li><a href="http://localhost:8080/register" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
 						aria-current="page"
 						>Register</a>
@@ -64,10 +62,13 @@
                     New Customer?
                     <a class="text-blue-600 hover:underline" href="/register">
                         Register
+                        
+                       
                     </a>
                 </div>
             </div>
         </form>
+       
     </div>
 </div> 
 

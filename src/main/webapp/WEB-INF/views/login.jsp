@@ -62,10 +62,13 @@
                     New Customer?
                     <a class="text-blue-600 hover:underline" href="/register">
                         Register
+                        
+                       
                     </a>
                 </div>
             </div>
         </form>
+       
     </div>
 </div> 
 

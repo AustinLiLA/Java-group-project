@@ -24,6 +24,14 @@ public Stock() {
 	super();
 }
 
+public Stock(int stockId, String stockName, String stockRegion, int stockQuantity) {
+	super();
+	this.stockId = stockId;
+	this.stockName = stockName;
+	this.stockRegion = stockRegion;
+	this.stockQuantity = stockQuantity;
+}
+
 public Stock(int stockId, String stockName, String stockRegion, int stockQuantity, Double stockPrice) {
 	super();
 	this.stockId = stockId;

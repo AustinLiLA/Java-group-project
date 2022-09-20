@@ -1,5 +1,6 @@
 package com.ab.controllers;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,9 +10,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.ab.models.Customer;
+import com.ab.models.Stock;
 import com.ab.servicies.CustomerService;
+import com.ab.servicies.StockService;
 
 
 @SessionAttributes({"session_customer"})
@@ -20,7 +24,8 @@ public class CustomerController {
 	
 	@Autowired 
 	private CustomerService customerService;
-
+	@Autowired
+	private StockService stockService;
 	
 	@ModelAttribute
 	public Customer customer() {
@@ -60,7 +65,7 @@ public class CustomerController {
 	    }
 	  
 	  @PostMapping("/login")
-	  public String loginProcess(@ModelAttribute Customer c, Model model) {
+	  public ModelAndView loginProcess(@ModelAttribute Customer c, Model model ) {
 		  		  
 		 Customer  loginCustomer = customerService.loginCustomer(c.getEmail(), c.getPassword());
 		  
@@ -68,11 +73,22 @@ public class CustomerController {
 		  
 		 
 		  if(loginCustomer != null) {
+			  
+			  ModelAndView mv = new ModelAndView();
 	    		
-	    		return "stock_chart";
+		    	List<Stock> stocks = stockService.displayStocks();		
+		    		
+		    	mv.addObject("stockList",stocks); 
+		    		
+		    	mv.setViewName("stock_list");
+
+		    	return mv; 
+	    		
 		   }
 	    	else {
-	    		return "register";
+	    		ModelAndView mv = new ModelAndView();
+	    		mv.setViewName("register");
+	    		return mv;
 	    	}
 	  }
 	  

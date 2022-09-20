@@ -43,7 +43,7 @@
                 </div>
                 <div class="mt-6 text-grey-dark">
                     New Customer?
-                    <a class="text-blue-600 hover:underline flex items-center justify-center" href="/register">
+                    <a class="text-blue-600 hover:underline" href="/register">
                         Register
                     </a>
                 </div>

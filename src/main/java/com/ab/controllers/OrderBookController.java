@@ -37,6 +37,7 @@ public class OrderBookController {
 		
 	} */
 	
+
 //	@PostMapping("/stocks/orderbook")
 //	public OrderBook newOrder(@RequestParam("order") String orderType,@RequestParam("price") double price,@RequestParam("quantity") int quantity,@ModelAttribute("session_customer") Customer customer, @ModelAttribute("session_stock") List<Stock> stock) {
 //		
@@ -66,6 +67,7 @@ public class OrderBookController {
 //		
 //	    
 //		return st;
+
 //	}
 
 //	@GetMapping("/stocks/orderbook/{customerId}/{orderPrice}/{orderQuantity}/{orderType}/{stockId}")

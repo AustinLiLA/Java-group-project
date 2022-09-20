@@ -1,12 +1,12 @@
 package com.ab.controllers;
 
+
+
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -18,6 +18,7 @@ import com.ab.servicies.CustomerService;
 import com.ab.servicies.StockService;
 
 
+
 @SessionAttributes({"session_customer"})
 @Controller
 public class CustomerController {
@@ -26,6 +27,7 @@ public class CustomerController {
 	private CustomerService customerService;
 	@Autowired
 	private StockService stockService;
+	
 	
 	@ModelAttribute
 	public Customer customer() {
@@ -67,12 +69,15 @@ public class CustomerController {
 	  @PostMapping("/login")
 	  public ModelAndView loginProcess(@ModelAttribute Customer c, Model model ) {
 		  		  
+
 		 Customer  loginCustomer = customerService.loginCustomer(c.getEmail(), c.getPassword());
+
 		  
 		  model.addAttribute("session_customer", loginCustomer);
 		  
 		 
 		  if(loginCustomer != null) {
+
 			  
 			  ModelAndView mv = new ModelAndView();
 	    		
@@ -87,16 +92,9 @@ public class CustomerController {
 		   }
 	    	else {
 	    		ModelAndView mv = new ModelAndView();
-	    		mv.setViewName("register");
+	    		mv.setViewName("noUser");
 	    		return mv;
+
 	    	}
-	  }
-	  
-	 
-	  
-	  
-	  
-	  
-	  
-	  
+	  }  
 }

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
@@ -44,6 +45,13 @@ public class OrderBookController {
 		return orderBookService.newOrder(ob);
 		
 	}
+	
+//	@PostMapping("/stocks/or")
+//	public void testing(@RequestParam("price") String price,@RequestParam("quantity")Integer quantity,@RequestParam("order") String order) {
+//		System.out.println(price);
+//		System.out.println(quantity);
+//		System.out.println(order);
+//	}
 
 	@GetMapping("/stocks/orderbook/{customerId}/{orderPrice}/{orderQuantity}/{orderType}/{stockId}")
 	public ModelAndView allOrderBooks(){

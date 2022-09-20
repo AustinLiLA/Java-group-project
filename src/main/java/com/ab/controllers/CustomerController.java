@@ -1,6 +1,8 @@
 package com.ab.controllers;
 
-import java.util.Optional;
+
+
+import javax.swing.JOptionPane;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +15,7 @@ import com.ab.models.Customer;
 import com.ab.servicies.CustomerService;
 
 
+
 @SessionAttributes({"session_customer"})
 @Controller
 public class CustomerController {
@@ -20,6 +23,7 @@ public class CustomerController {
 	@Autowired 
 	private CustomerService customerService;
 
+	
 	
 	@ModelAttribute
 	public Customer customer() {
@@ -61,24 +65,15 @@ public class CustomerController {
 	  @PostMapping("/login")
 	  public String loginProcess(@ModelAttribute Customer c, Model model) {
 		  		  
-		  Optional<Customer>  loginCustomer = customerService.loginCustomer(c.getEmail(), c.getPassword());
+		  Customer  loginCustomer = customerService.loginCustomer(c.getEmail(), c.getPassword());
 		  
 		  model.addAttribute("session_customer", loginCustomer);
 		  
 		  if(loginCustomer != null) {
-	    		
 	    		return "stock_chart";
 		   }
-	    	else {
-	    		return "register";
+	    	else{
+	    		return "noUser";
 	    	}
-	  }
-	  
-	 
-	  
-	  
-	  
-	  
-	  
-	  
+	  }  
 }

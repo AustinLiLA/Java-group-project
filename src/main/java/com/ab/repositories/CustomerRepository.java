@@ -1,7 +1,7 @@
 package com.ab.repositories;
 
 
-import java.util.Optional;
+
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -16,6 +16,6 @@ public interface CustomerRepository extends JpaRepository<Customer,Integer> {
 	
 	@Transactional
 	@Query("From Customer c WHERE c.email = :email and c.password = :password")
-    public Optional <Customer> findByRecord(@Param("email") String email,@Param("password") String password);
+    public Customer findByRecord(@Param("email") String email,@Param("password") String password);
 	
 }

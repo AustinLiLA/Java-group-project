@@ -11,23 +11,31 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ab.models.Customer;
+import com.ab.models.OrderBook;
 import com.ab.models.Stock;
+import com.ab.servicies.OrderBookService;
 import com.ab.servicies.StockService;
 
 
-@SessionAttributes({"session_customer"})
+@SessionAttributes({"session_customer","session_stock"})
 @Controller
 public class MappingController {
 	
 	@Autowired
 	private StockService stockService;
+	
+	@Autowired
+	private OrderBookService orderBookService;
+	
 	HttpSession session;
 	
 	@GetMapping("/stocks/chart")
@@ -55,20 +63,22 @@ public class MappingController {
 		return mv;
 	}
 	
-	@GetMapping("/stocks/orderbook")
-	public String orderbook(@ModelAttribute Customer c, Model model) {
-		
-		@SuppressWarnings("unchecked")
-		Optional <Customer> sessionCustomer = (Optional<Customer>) model.getAttribute("session_customer");
-		if (sessionCustomer == null) {
-			return "login";
-		}
-		else {
-			return "order_book";
-		}
-
-		 
-	}
+	
+	
+//	@GetMapping("/stocks/orderbook")
+//	public String orderbook(@ModelAttribute Customer c, Model model) {
+//		
+//		@SuppressWarnings("unchecked")
+//		Optional <Customer> sessionCustomer = (Optional<Customer>) model.getAttribute("session_customer");
+//		if (sessionCustomer == null) {
+//			return "login";
+//		}
+//		else {
+//			return "order_book";
+//		}
+//
+//		 
+//	}
 	
 	@GetMapping("/login")
 	public String login() {
@@ -87,9 +97,7 @@ public class MappingController {
     @GetMapping("/logout")
     public ModelAndView logout(SessionStatus session) {
 
-    	session.setComplete();
-    	
-    	
+    	session.setComplete();	
 
     	ModelAndView mv = new ModelAndView();
     		
@@ -102,9 +110,52 @@ public class MappingController {
     	return mv; 
     		
     	
-
     }
-
-
-
+    
+	@PostMapping("/stocks/orderbook")
+	public String newOrder(@RequestParam("order") String orderType,@RequestParam("price") double price,@RequestParam("quantity") int quantity,@ModelAttribute("session_customer") Customer customer, @ModelAttribute("session_stock") List<Stock> stock) {
+		
+		 OrderBook ob;
+			
+	     ob = new OrderBook(stock.get(0).getStockId(), customer.getCustomerId(),orderType,price,quantity);
+	    			
+	    orderBookService.newOrder(ob);
+		
+	    
+		return "order_book";
+	}
+    
+//    @GetMapping("/stocks/orderbook")
+//    public ModelAndView getOrderBook(@RequestParam("order") String orderType,@RequestParam("price") double price,@RequestParam("quantity") int quantity,@ModelAttribute("session_customer") Customer customer, @ModelAttribute("session_stock") List<Stock> stock) {
+//
+//    	ModelAndView mv = new ModelAndView();
+//    	 	 
+//        List<OrderBook> orderBookList =  orderBookService.displayOrderBooks();
+//		
+//		
+//		mv.addObject("orderBookList",orderBookList); 
+//		
+//		mv.setViewName("orderBookList");
+//	
+//		return mv; 
+//    		
+//    	
+//    }
+    
+//    @GetMapping("/stocks/orderbook")
+//    public ModelAndView getOrderBook(@ModelAttribute OrderBook orderBook, Model model) {
+//
+//    	ModelAndView mv = new ModelAndView();
+//    	 	 
+//        List<OrderBook> orderBookList =  orderBookService.displayOrderBooks();
+//		
+//		System.out.println(orderBookList);
+//		mv.addObject("orderBookList",orderBookList); 
+//		
+//		mv.setViewName("orderBookList");
+//	
+//		return mv; 
+//    		
+//    	
+//    }
 }

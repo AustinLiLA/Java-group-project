@@ -36,7 +36,6 @@ public class MappingController {
 	@Autowired
 	private OrderBookService orderBookService;
 	
-	HttpSession session;
 	
 	@GetMapping("/stocks/chart")
 	public String chart() {			
@@ -49,6 +48,7 @@ public class MappingController {
 		ModelAndView mv = new ModelAndView();
         
         Stock st = new Stock();
+        st.setStockId(stockId);
 		
 		st.setStockName(stockName);
 		
@@ -75,9 +75,7 @@ public class MappingController {
 //		}
 //		else {
 //			return "order_book";
-//		}
-//
-//		 
+//		} 
 //	}
 	
 	@GetMapping("/login")
@@ -112,35 +110,32 @@ public class MappingController {
     	
     }
     
-	@PostMapping("/stocks/orderbook")
-	public String newOrder(@RequestParam("order") String orderType,@RequestParam("price") double price,@RequestParam("quantity") int quantity,@ModelAttribute("session_customer") Customer customer, @ModelAttribute("session_stock") List<Stock> stock) {
+    
+    @PostMapping("/stocks/orderbook")
+	public String newOrder(@RequestParam("order") String orderType,@RequestParam("quantity") int quantity,@RequestParam("price") double price,@RequestParam("stockId") int stockId,Model model) {
+    	Customer user = (Customer) model.getAttribute("session_customer");
+
+		System.out.println(orderType);
+		System.out.println(price);
+		System.out.println(quantity);
+		System.out.println();
 		
-		 OrderBook ob;
-			
-	     ob = new OrderBook(stock.get(0).getStockId(), customer.getCustomerId(),orderType,price,quantity);
-	    			
-	    orderBookService.newOrder(ob);
+		if(user==null) {
+			return "noUser";
+		}
 		
-	    
+		orderBookService.newOrder(new OrderBook(orderType,quantity,price,user.getCustomerId(),stockId));
+		
 		return "order_book";
 	}
     
-//    @GetMapping("/stocks/orderbook")
-//    public ModelAndView getOrderBook(@RequestParam("order") String orderType,@RequestParam("price") double price,@RequestParam("quantity") int quantity,@ModelAttribute("session_customer") Customer customer, @ModelAttribute("session_stock") List<Stock> stock) {
-//
-//    	ModelAndView mv = new ModelAndView();
-//    	 	 
-//        List<OrderBook> orderBookList =  orderBookService.displayOrderBooks();
-//		
-//		
-//		mv.addObject("orderBookList",orderBookList); 
-//		
-//		mv.setViewName("orderBookList");
-//	
-//		return mv; 
-//    		
-//    	
-//    }
+//	@PostMapping("/stocks/orderbook")
+//	public String newOrder(@RequestParam("order") String orderType,@RequestParam("price") double price,@RequestParam("quantity") int quantity,@ModelAttribute("session_customer") Customer customer, @ModelAttribute("session_stock") List<Stock> stock) {
+//		OrderBook ob;	
+//	     ob = new OrderBook(stock.get(0).getStockId(), customer.getCustomerId(),orderType,price,quantity);			
+//	    orderBookService.newOrder(ob);
+//		return "order_book";
+//	}
     
 //    @GetMapping("/stocks/orderbook")
 //    public ModelAndView getOrderBook(@ModelAttribute OrderBook orderBook, Model model) {
@@ -158,4 +153,5 @@ public class MappingController {
 //    		
 //    	
 //    }
+    
 }

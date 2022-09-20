@@ -130,7 +130,8 @@ window.onload = function () {
 	</nav>
 	<br>
 <h1> You have registered as <%= session.getAttribute("session_customer") %></h1>
-<center><label><h1><b>${stock.stockName} Trading StockChart</b></h1></label></center>
+<center><label><h1><b>${stock.stockId}</b></h1></label></center>
+<center><label><h1><b>${stock.stockName} </b></h1></label></center>
 <center><label><h1><b>${stock.stockRegion}</b></h1></label></center>
 <center><label><h1><b>${stock.stockQuantity}</b></h1></label></center>
 
@@ -138,10 +139,11 @@ window.onload = function () {
   
   <div class="flex items-center justify-center min-h-screen bg-blue-500">
   <div class="px-8 py-6 mx-4 mt-4 text-left bg-white shadow-lg md:w-1/3 lg:w-1/3 sm:w-1/3  rounded-lg">
-<form action="/stocks/or" 	method="POST">
+  
+<form action="/stocks/orderbook" 	method="POST">
 <div class="mt-4">
-  <label for="price"class="block">Stock Name:</label>
-  <h1 class="flex items-center justify-center"><b>${stock.stockName}</b></h1>
+  <label for="price"class="block">Stock Name: </label><strong class="flex items-center justify-center">${stock.stockName}</strong>
+  <input class="w-full px-2 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600 flex items-center" type="hidden" id="stockId" name="stockId" value="${stock.stockId}"><br>
   <label for="price"class="block">Stock Price:</label>
   <input class="w-full px-2 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600 flex items-center"required type="text" id="price" name="price"><br>
   <label for="quantity"class="block">Quantity:</label>
@@ -152,7 +154,7 @@ window.onload = function () {
     <option value="sell" name="sell">Sell</option>
   </select>
   <br><br>
-  <input class="w-full px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900"type="submit" value="Place Order">
+  <button class="w-full px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900"type="submit" >Place Order</button>
   </div>
 </form>
 </div>

@@ -63,6 +63,17 @@ public class OrderBook {
 	}
 
 
+	
+
+
+	public OrderBook(String orderType, int orderQuantity, double orderPrice) {
+		super();
+		this.orderType = orderType;
+		this.orderQuantity = orderQuantity;
+		this.orderPrice = orderPrice;
+	}
+
+
 	public int getOrderId() {
 		return orderId;
 	}

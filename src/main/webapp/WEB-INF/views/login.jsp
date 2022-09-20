@@ -43,7 +43,7 @@
         <div class="flex justify-center">
         </div>
         <h3 class="text-3xl font-bold text-center">Login</h3> 
-        <form action="login" method="post" onclick="hello()">
+        <form action="" method="post">
             <div class="mt-4">
                 <div class="mt-4">
                     <label class="block" for="email">Email</label>

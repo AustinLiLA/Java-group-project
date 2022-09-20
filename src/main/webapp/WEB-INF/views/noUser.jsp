@@ -25,13 +25,6 @@
 					<li><a href="http://localhost:8080/stocks"
 						class="block py-2 pr-4 pl-3 text-white bg-blue-700 text-1xl rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
 						aria-current="page">Stocks</a></li>
-					<li><a href="http://localhost:8080/login"
-						class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-						aria-current="page">Login</a></li>
-					<li><a href="http://localhost:8080/register" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-						aria-current="page"
-						>Register</a>
-					</li>
 				</ul>
 				
 			</div>
@@ -44,7 +37,6 @@
         <div class="flex justify-center">
         </div>
         <h3 class="text-3xl font-bold text-center">User doesn't Exist</h3> 
-        
             <div class="mt-4">
                 <div class="flex">
                     <a class="w-full px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900 flex items-center justify-center"type="submit" name="Submit" href="http://localhost:8080/login">Try Login Again</a>

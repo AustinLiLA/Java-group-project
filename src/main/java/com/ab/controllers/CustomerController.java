@@ -92,7 +92,7 @@ public class CustomerController {
 		   }
 	    	else {
 	    		ModelAndView mv = new ModelAndView();
-	    		mv.setViewName("register");
+	    		mv.setViewName("noUser");
 	    		return mv;
 
 	    	}

@@ -2,7 +2,7 @@ package com.ab.controllers;
 
 
 
-import javax.swing.JOptionPane;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,9 +10,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.ab.models.Customer;
+import com.ab.models.Stock;
 import com.ab.servicies.CustomerService;
+import com.ab.servicies.StockService;
 
 
 
@@ -22,7 +25,8 @@ public class CustomerController {
 	
 	@Autowired 
 	private CustomerService customerService;
-
+	@Autowired
+	private StockService stockService;
 	
 	
 	@ModelAttribute
@@ -63,17 +67,34 @@ public class CustomerController {
 	    }
 	  
 	  @PostMapping("/login")
-	  public String loginProcess(@ModelAttribute Customer c, Model model) {
+	  public ModelAndView loginProcess(@ModelAttribute Customer c, Model model ) {
 		  		  
-		  Customer  loginCustomer = customerService.loginCustomer(c.getEmail(), c.getPassword());
+
+		 Customer  loginCustomer = customerService.loginCustomer(c.getEmail(), c.getPassword());
+
 		  
 		  model.addAttribute("session_customer", loginCustomer);
 		  
+		 
 		  if(loginCustomer != null) {
-	    		return "stock_chart";
+
+			  
+			  ModelAndView mv = new ModelAndView();
+	    		
+		    	List<Stock> stocks = stockService.displayStocks();		
+		    		
+		    	mv.addObject("stockList",stocks); 
+		    		
+		    	mv.setViewName("stock_list");
+
+		    	return mv; 
+	    		
 		   }
-	    	else{
-	    		return "noUser";
+	    	else {
+	    		ModelAndView mv = new ModelAndView();
+	    		mv.setViewName("register");
+	    		return mv;
+
 	    	}
 	  }  
 }

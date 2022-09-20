@@ -88,7 +88,7 @@ public class MappingController {
     public ModelAndView logout(SessionStatus session) {
 
     	session.setComplete();
-    	System.out.println("OUTTT");
+    	
     	
 
     	ModelAndView mv = new ModelAndView();

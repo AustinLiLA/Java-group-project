@@ -73,7 +73,7 @@ OrderBook
             <td class="border border-slate-800"><c:out value="${od.orderQuantity}" /></td>
             
             
-            <td class="border border-slate-800"><button type="button" onclick="location.href='http://localhost:8080/stocks/chart/${s.stockId}/${s.stockName}/${s.stockQuantity}/${s.stockRegion}';">View</button></td>
+         
         </tr>
     </c:forEach>
 		</div>

@@ -1,5 +1,10 @@
 package com.ab.models;
 
+
+
+
+import java.time.LocalDateTime;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -12,6 +17,8 @@ public class OrderBook {
 	private String orderType;
 	private int orderQuantity;
 	private double orderPrice;
+	private String stockRegion;
+	private LocalDateTime timestamp;
 	
 //	@OneToMany(cascade= CascadeType.ALL)
 //	@JoinColumn(name = "FK_customerId")
@@ -20,11 +27,39 @@ public class OrderBook {
 //	@JoinColumn(name = "FK_stockId")
 	private int stockId;
 	
+	
 	public OrderBook() {
 		super();
 	}
 
 	
+	public OrderBook(int orderId, String orderType, int orderQuantity, double orderPrice, String stockRegion,
+			LocalDateTime timestamp, int customerId, int stockId) {
+		super();
+		this.orderId = orderId;
+		this.orderType = orderType;
+		this.orderQuantity = orderQuantity;
+		this.orderPrice = orderPrice;
+		this.stockRegion = stockRegion;
+		this.timestamp = timestamp;
+		this.customerId = customerId;
+		this.stockId = stockId;
+	}
+
+
+	public OrderBook(String orderType, int orderQuantity, double orderPrice, String stockRegion,
+			LocalDateTime timestamp, int customerId, int stockId) {
+		super();
+		this.orderType = orderType;
+		this.orderQuantity = orderQuantity;
+		this.orderPrice = orderPrice;
+		this.stockRegion = stockRegion;
+		this.timestamp = timestamp;
+		this.customerId = customerId;
+		this.stockId = stockId;
+	}
+
+
 	public OrderBook(int orderId, String orderType, int orderQuantity, double orderPrice) {
 		super();
 		this.orderId = orderId;
@@ -134,11 +169,35 @@ public class OrderBook {
 	}
 
 
+	public String getStockRegion() {
+		return stockRegion;
+	}
+
+
+	public void setStockRegion(String stockRegion) {
+		this.stockRegion = stockRegion;
+	}
+
+
+	public LocalDateTime getTimestamp() {
+		return timestamp;
+	}
+
+
+	public void setTimestamp(LocalDateTime timestamp) {
+		this.timestamp = timestamp;
+	}
+
+
 	@Override
 	public String toString() {
 		return "OrderBook [orderId=" + orderId + ", orderType=" + orderType + ", orderQuantity=" + orderQuantity
-				+ ", orderPrice=" + orderPrice + "]";
+				+ ", orderPrice=" + orderPrice + ", stockRegion=" + stockRegion + ", timestamp=" + timestamp
+				+ ", customerId=" + customerId + ", stockId=" + stockId + "]";
 	}
+
+
+	
 	
 	
 	

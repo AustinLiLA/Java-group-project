@@ -9,7 +9,6 @@ import javax.persistence.Id;
 public class Stock {
 @Id
 private int stockId;
-
 private String stockName;
 private String stockRegion;
 private int stockQuantity;
@@ -37,6 +36,9 @@ public Stock(int stockId, String stockName, String stockRegion, int stockQuantit
 	this.stockQuantity = stockQuantity;
 	this.stockPrice = stockPrice;
 }
+
+
+
 
 public int getStockId() {
 	return stockId;

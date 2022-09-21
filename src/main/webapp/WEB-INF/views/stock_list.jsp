@@ -56,6 +56,7 @@
      <th class="border border-slate-700">NAME</th>
      <th class="border border-slate-700">QUANTITY</th>
      <th class="border border-slate-700">REGION</th>
+     <th class="border border-slate-700">INFO</th>
   </tr>
     <c:forEach items="${stockList}" var="s">
         <tr>
@@ -63,7 +64,12 @@
             <td class="border border-slate-800"><c:out value="${s.stockName}" /></td>
             <td class="border border-slate-800"><c:out value="${s.stockQuantity}" /></td>
             <td class="border border-slate-800"><c:out value="${s.stockRegion}" /></td>
-            <td class="border border-slate-800"><button type="button" onclick="location.href='http://localhost:8080/stocks/chart/${s.stockId}/${s.stockName}/${s.stockQuantity}/${s.stockRegion}';">View</button></td>
+            <td class="border border-slate-800">
+            <form action="http://localhost:8080/stocks/chart/${s.stockId}/${s.stockName}/${s.stockQuantity}/${s.stockRegion}" method="GET">
+            	<button type="submit">View</button>
+            </form>
+            
+            </td>
         </tr>
     </c:forEach>
 		</div>

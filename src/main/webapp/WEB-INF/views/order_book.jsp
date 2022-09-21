@@ -54,24 +54,28 @@ OrderBook
 		class="flex justify-center table-auto border-separate border-spacing-2 border border-slate-500 ">
 		
 		<tr>
+	 <th class="border border-slate-700">CUSTOMER ID</th>	
      <th class="border border-slate-700">ID</th>
-     <th class="border border-slate-700">STOCK ID</th>
-     <th class="border border-slate-700">CUSTOMER ID</th>
+     
+     
      <th class="border border-slate-700">TYPE</th>
      <th class="border border-slate-700">PRICE</th>
      <th class="border border-slate-700">QUANTITY</th>
- 
+     <th class="border border-slate-700">STOCK ID</th>
+     <th class="border border-slate-700">STOCK Name</th>
      
   </tr>
-    <c:forEach items="${orderBookList}" var="od">
+    <c:forEach items="${orderBookList}" var="ob">
         <tr>
-            <td class="border border-slate-800"><c:out value="${od.orderId}" /></td>
-            <td class="border border-slate-800"><c:out value="${od.stockId}" /></td>
-            <td class="border border-slate-800"><c:out value="${od.customerId}" /></td>
-            <td class="border border-slate-800"><c:out value="${od.orderType}" /></td>
-            <td class="border border-slate-800"><c:out value="${od.orderPrice}" /></td>
-            <td class="border border-slate-800"><c:out value="${od.orderQuantity}" /></td>
+            <td class="border border-slate-800"><c:out value="${ob.customerId}" /></td>
+            <td class="border border-slate-800"><c:out value="${ob.orderId}" /></td>
+          
             
+            <td class="border border-slate-800"><c:out value="${ob.orderType}" /></td>
+            <td class="border border-slate-800"><c:out value="${ob.orderPrice}" /></td>
+            <td class="border border-slate-800"><c:out value="${ob.orderQuantity}" /></td>
+            <td class="border border-slate-800"><c:out value="${ob.stockId}" /></td>
+            <td class="border border-slate-800"><c:out value="${ob.stockName}" /></td>
             
          
         </tr>

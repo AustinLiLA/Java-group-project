@@ -2,11 +2,13 @@ package com.ab.controllers;
 
 import java.lang.annotation.Repeatable;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
@@ -36,16 +38,25 @@ public class OrderBookController {
 	} */
 	
 	@PostMapping("/stocks/orderbook")
-	public OrderBook newOrder(@ModelAttribute OrderBook or, @ModelAttribute("session_customer") Customer customer, @ModelAttribute("session_stock") List<Stock> stock) {
+	public OrderBook newOrder(@RequestParam("orderId") int orderId, @RequestParam("orderType") String orderType, @RequestParam("Price") double price, @RequestParam("quantity") int quantity,@RequestParam("stockId") int stockId, @RequestParam("stockName") String stockName, @ModelAttribute("session_customer") Customer customer, @ModelAttribute("session_stock") List<Stock> stock) {
+		
+		OrderBook ob = null ;
+		
+		ob.setOrderId(orderId);
+		ob.setOrderType(orderType);
+		ob.setOrderPrice(price);
+		ob.setOrderQuantity(quantity);
+		ob.setStockId(stockId);
+		ob.setStockName(stockName);
 		
 		
-	    OrderBook ob = new OrderBook(stock.get(0).getStockId(), customer.getCustomerId(),or.getOrderType(),or.getOrderPrice(), or.getOrderQuantity());
-		System.out.println(ob);
-		return orderBookService.newOrder(ob);
+	    OrderBook ob1 = new OrderBook(customer.getCustomerId(), ob.getOrderId(), ob.getOrderType(), ob.getOrderQuantity(),ob.getOrderPrice(), stock.get(0).getStockId(),stock.get(0).getStockName());
+		
+		return orderBookService.newOrder(ob1);
 		
 	}
 
-	@GetMapping("/stocks/orderbook/{customerId}/{orderPrice}/{orderQuantity}/{orderType}/{stockId}")
+	@GetMapping("/stocks/orderbook/{customerId}/{orderId}/{orderType}/{Price}/{quantity}/{stockId}/{stockName}")
 	public ModelAndView allOrderBooks(){
 		
 		ModelAndView mv = new ModelAndView();

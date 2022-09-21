@@ -23,11 +23,25 @@ public class OrderBook {
 //	@JoinColumn(name = "FK_stockId")
 	private int stockId;
 	
+	private String stockName;
 	public OrderBook() {
 		super();
 	}
 
 	
+	public OrderBook(int customerId,int orderId, String orderType, int orderQuantity, double orderPrice,  int stockId,
+			String stockName) {
+		super();
+		this.orderId = orderId;
+		this.orderType = orderType;
+		this.orderQuantity = orderQuantity;
+		this.orderPrice = orderPrice;
+		this.customerId = customerId;
+		this.stockId = stockId;
+		this.stockName = stockName;
+	}
+
+
 	public OrderBook(int orderId, String orderType, int orderQuantity, double orderPrice) {
 		super();
 		this.orderId = orderId;
@@ -130,6 +144,12 @@ public class OrderBook {
 	public String toString() {
 		return "OrderBook [orderId=" + orderId + ", orderType=" + orderType + ", orderQuantity=" + orderQuantity
 				+ ", orderPrice=" + orderPrice + "]";
+	}
+
+
+	public void setStockName(String stockName) {
+		this.stockName = stockName;
+		
 	}
 	
 	

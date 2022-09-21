@@ -8,7 +8,5 @@ import com.ab.models.OrderBook;
 @Repository
 public interface OrderBookRepository  extends JpaRepository<OrderBook, Integer> {
 
-	/*@Transactional 
-	@Query("From ")
-	*/
+	
 }

@@ -1,12 +1,14 @@
 package com.ab.controllers;
 
-import java.lang.annotation.Repeatable;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
@@ -25,41 +27,25 @@ public class OrderBookController {
 	
 	@Autowired
 	private OrderBookService orderBookService;
-	/*
-	@PostMapping("/stocks/orderbook/{customerId}/{orderPrice}/{orderQuantity}/{orderType}/{stockId}")
-	public OrderBook newOrder(@PathVariable("customerId") int customerId,@PathVariable("orderPrice") double orderPrice,@PathVariable("orderQuantity") int orderQuantity,@PathVariable("orderType") String orderType,@PathVariable("stockId") int stockId) {
-		
-		OrderBook or = new OrderBook(orderType, orderQuantity, orderPrice, customerId, stockId);
-		System.out.println(or);
-		return orderBookService.newOrder(or); 
-		
-	} */
 	
-	@PostMapping("/stocks/orderbook")
-	public OrderBook newOrder(@ModelAttribute OrderBook or, @ModelAttribute("session_customer") Customer customer, @ModelAttribute("session_stock") List<Stock> stock) {
-		
-		
-	    OrderBook ob = new OrderBook(stock.get(0).getStockId(), customer.getCustomerId(),or.getOrderType(),or.getOrderPrice(), or.getOrderQuantity());
-		System.out.println(ob);
-		return orderBookService.newOrder(ob);
-		
-	}
+	
+    @GetMapping("/stocks/orderbookShow")
+    public ModelAndView getOrderBook() {
 
-	@GetMapping("/stocks/orderbook/{customerId}/{orderPrice}/{orderQuantity}/{orderType}/{stockId}")
-	public ModelAndView allOrderBooks(){
+    	ModelAndView mv = new ModelAndView();
+    	 	 
+        List<OrderBook> orderBookList =  orderBookService.displayOrderBooks();
 		
-		ModelAndView mv = new ModelAndView();
-		
-		List<OrderBook> orderBookList = orderBookService.displayOrderBooks();		
-		
+		System.out.println(orderBookList);
 		mv.addObject("orderBookList",orderBookList); 
 		
 		mv.setViewName("order_book");
-		
-		return mv; // represent "view name"/jsp file name
-		
-	}
 	
+		return mv; 
+
+    }
+
+    
 	
 	
 	

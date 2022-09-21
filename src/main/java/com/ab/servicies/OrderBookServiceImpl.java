@@ -23,7 +23,6 @@ public class OrderBookServiceImpl implements OrderBookService {
 	
 	@Override
 	public List<OrderBook> displayOrderBooks(){
-		
 		return  orderBookRepository.findAll();
 	}
 

@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-	<%@ page import="com.ab.models.Customer" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,21 +20,6 @@
 			<a href="http://localhost:8080/stocks" class="flex"> <span
 				class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Trading Platform</span>
 			</a>
-			<%if (session.getAttribute("session_customer") != null) {%>
-			 <a  class="flex" href="http://localhost:8080/stocks"> <span
-				class="flex justify-center text-1xl font-semibold whitespace-nowrap dark:text-white">
-				Balance: <%Customer customer1 = (Customer)session.getAttribute("session_customer");
-							out.print(customer1.getBalance());
-									%>
-				</span>
-			</a>
-			<% } else {%>
-				<a  class="flex" href="http://localhost:8080/stocks"> <span
-				class="flex justify-center text-1xl font-semibold whitespace-nowrap dark:text-white">
-				Balance: ------
-				</span>
-			</a>
-			<% } %>
 			<!-- <button data-collapse-toggle="mobile-menu" type="button"
 				class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
 				aria-controls="mobile-menu-2" aria-expanded="false">
@@ -63,8 +46,6 @@
 			</div>
 		</div>
 	</nav>
-
-
 <div class="p-20">
 	<table border="1"
 		class="flex justify-center table-auto border-separate border-spacing-2 border border-slate-500 ">
@@ -75,14 +56,9 @@
      <th class="border border-slate-700">CUSTOMER ID</th>
      <th class="border border-slate-700">REGION</th>
      <th class="border border-slate-700">TYPE</th>
-     <th class="border border-slate-700">
-     <a href="/stocks/orderInsert/orderByPrice">PRICE</a>
-     </th>
-          <th class="border border-slate-700">
-     <a href="/stocks/orderInsert/orderByQuantity">QUANTITY</a>
-     </th>
+     <th class="border border-slate-700">PRICE</th>
+     <th class="border border-slate-700">QUANTITY</th>
      <th class="border border-slate-700">TIMESTAMP</th>
-     
  
      
   </tr>
@@ -94,10 +70,8 @@
             <td class="border border-slate-800"><c:out value="${od.stockRegion}" /></td>
             <td class="border border-slate-800"><c:out value="${od.orderType}" /></td>
             <td class="border border-slate-800"><c:out value="${od.orderPrice}" /></td>
-            <td class="border border-slate-800"><c:out value="${od.orderQuantity}"/></td>
-             <td class="border border-slate-800"><c:out value="${od.timestamp}"/></td> 
-            
-       
+            <td class="border border-slate-800"><c:out value="${od.orderQuantity}" /></td>
+            <td class="border border-slate-800"><c:out value="${od.orderTimeStamp}" /></td>
             
         </tr>
     </c:forEach>

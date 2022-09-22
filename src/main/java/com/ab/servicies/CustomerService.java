@@ -13,7 +13,6 @@ public interface CustomerService {
 	
 	public Customer loginCustomer(String email, String password);
 	
-
-	
+	public void modifyCustomerBalance(double balance,int id);
 	
 }

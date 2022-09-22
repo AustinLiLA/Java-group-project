@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ page import="com.ab.models.Customer" %>
+        <%@ page import="com.ab.models.Stock" %>
+    <%@ page import="java.util.List" %>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -8,6 +10,8 @@
 <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 <meta charset="UTF-8">
 <title>My page</title>
+
+
 </head>
 <body>
 <!-- NAVBAR -->
@@ -22,7 +26,14 @@
 			 <a  class="flex" href="http://localhost:8080/stocks"> <span
 				class="flex justify-center text-1xl font-semibold whitespace-nowrap dark:text-white">
 				Balance: <%Customer customer1 = (Customer)session.getAttribute("session_customer");
+				   
 							out.print(customer1.getBalance());
+										
+							/* if(customer1.getBalance() < (stk.getStockPrice()*stk.getStockQuantity())){
+								
+								out.print("Balance is insufficient to place an order!!!!");
+							
+							} */
 									%>
 				</span>
 			</a>

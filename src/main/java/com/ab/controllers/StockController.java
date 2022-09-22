@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.ab.models.Stock;
 import com.ab.servicies.StockService;
 
-@SessionAttributes({"session_stock"})
+@SessionAttributes({"session_stock","session_st"})
 @RestController
 public class StockController {
 
@@ -25,15 +25,22 @@ public class StockController {
 		
 		ModelAndView mv = new ModelAndView();
 		
+	//	Stock st = new Stock(stock.getStockId(),stock.getStockName(),stock.getStockRegion(),stock.getStockQuantity(),stock.getStockPrice());
 		
-		List<Stock> stocks = stockService.displayStocks();		
+		Stock st = stockService.getStocks(13);
 		
+		System.out.println("==============================================");
+		System.out.println(st);
+		model.addAttribute("session_st", st);
+		
+		List<Stock> stocks = stockService.displayStocks();				
 		
 		model.addAttribute("session_stock", stocks);
-		mv.addObject("stockList",stocks); 
-		mv.setViewName("stock_list");
 		
-	System.out.println(stocks);
+		mv.addObject("stockList",stocks); 
+		
+		mv.setViewName("stock_list");
+	
 		return mv; 
 		
 	}

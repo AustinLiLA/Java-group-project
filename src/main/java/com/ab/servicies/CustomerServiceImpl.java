@@ -30,6 +30,12 @@ public class CustomerServiceImpl implements CustomerService {
 
 	}
 
+	@Override
+	public void modifyCustomerBalance(double balance, int id) {
+		// TODO Auto-generated method stub
+		 customerRepository.reduceCustomerBalance(balance, id);
+	}
+
 	
 
 }

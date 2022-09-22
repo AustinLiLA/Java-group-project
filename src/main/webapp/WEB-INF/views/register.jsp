@@ -65,7 +65,11 @@
                             <input type="password" placeholder="Password"
                                 class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" name="Password"required>
                 </div>
-                  
+                  <div class="mt-4">
+                    <label class="block">Balance</label>
+                            <input type="number" placeholder="Balance"
+                                class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" name="Balance"required>
+                </div>
                 <div class="flex">
                     <button class="w-full px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900"type="submit" name="Submit">Register</button>
                 </div>

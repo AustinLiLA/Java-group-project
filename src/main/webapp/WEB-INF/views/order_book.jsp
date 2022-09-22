@@ -59,8 +59,12 @@
      <th class="border border-slate-700">CUSTOMER ID</th>
      <th class="border border-slate-700">REGION</th>
      <th class="border border-slate-700">TYPE</th>
-     <th class="border border-slate-700">PRICE</th>
-     <th class="border border-slate-700">QUANTITY</th>
+     <th class="border border-slate-700">
+     <a href="/stocks/orderInsert/orderByPrice">PRICE</a>
+     </th>
+          <th class="border border-slate-700">
+     <a href="/stocks/orderInsert/orderByQuantity">QUANTITY</a>
+     </th>
      <th class="border border-slate-700">TIMESTAMP</th>
      
  

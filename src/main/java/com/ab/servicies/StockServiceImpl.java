@@ -22,13 +22,10 @@ public class StockServiceImpl implements StockService {
 		return stockRepository.findAll();
 	}
 
-
 	@Override
 	public Optional<Stock> getStocks(int id) {
 		// TODO Auto-generated method stub
 		return stockRepository.findById(id);
 	}
 	
-
-
 }

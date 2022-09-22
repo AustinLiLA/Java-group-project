@@ -46,6 +46,8 @@ public class CustomerMappingController {
 		
 		return "login"; 
 	}
+	
+	
 	//Login Operation -POST	
   @PostMapping("/login")
   public ModelAndView loginProcess(@ModelAttribute Customer c, Model model ) {
@@ -113,7 +115,13 @@ public class CustomerMappingController {
 	    	}
 	    }
 	  
-	  
+	  //Personal User page 
+	//Login Operation -GET
+		@GetMapping("/portfolio")
+		public String customerProfile() {
+			
+			return "portfolio"; 
+		}
 
 		
 }

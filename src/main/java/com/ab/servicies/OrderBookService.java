@@ -13,5 +13,8 @@ public interface OrderBookService {
 	public List<OrderBook> displayOrderBooksByQuantity();
 	public List<OrderBook> displayOrderBooksByRegion();
 	public List<OrderBook> displayOrderBooksByStockId();
+	
+	public List<OrderBook> findCustomerOrders(int id);
+	
 
 }

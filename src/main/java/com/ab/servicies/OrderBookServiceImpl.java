@@ -21,7 +21,7 @@ public class OrderBookServiceImpl implements OrderBookService {
 		
 		return orderBookRepository.save(orderBook);
 	}
-	
+	//Format the date
 	@Override
 	public List<OrderBook> displayOrderBooks(){
 		return  orderBookRepository.findAll();
@@ -48,6 +48,13 @@ public class OrderBookServiceImpl implements OrderBookService {
 	public List<OrderBook> displayOrderBooksByStockId() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	@Override
+	public List<OrderBook> findCustomerOrders(int id) {
+		// TODO Auto-generated method stub
+		
+		System.out.println(orderBookRepository.showOrderBookCustomerId(id));
+		return orderBookRepository.showOrderBookCustomerId(id);
 	}
 
 }

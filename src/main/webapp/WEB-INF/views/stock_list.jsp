@@ -23,7 +23,7 @@
 			</a>
 			<%if (session.getAttribute("session_customer") != null) {%>
 			 <a  class="flex" href="http://localhost:8080/stocks"> <span
-				class="flex justify-center text-1xl font-semibold whitespace-nowrap dark:text-white">
+				class="flex justify-center text-1xl font-semibold whitespace-nowrap dark:text-white bg-blue-300">
 				Balance: <%Customer customer1 = (Customer)session.getAttribute("session_customer");
 							out.print(customer1.getBalance());
 									%>
@@ -31,7 +31,7 @@
 			</a>
 			<% } else {%>
 					<a  class="flex" href="http://localhost:8080/stocks"> <span
-				class="flex justify-center text-1xl font-semibold whitespace-nowrap dark:text-white">
+				class="flex justify-center text-1xl font-semibold whitespace-nowrap dark:text-white bg-blue-300">
 				Balance: ------
 				</span>
 			</a>
@@ -52,6 +52,9 @@
 					<li><a href="http://localhost:8080/logout" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
 						aria-current="page"
 						>Logout</a></li>
+						<li><a href="http://localhost:8080/stocks/orderbook" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+						aria-current="page"
+						>Order Book</a></li>
 					<li><a href="http://localhost:8080/stocks/orderbookCustomerId" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
 						aria-current="page"
 						><%Customer customer = (Customer)session.getAttribute("session_customer");
@@ -69,8 +72,8 @@
 	 Customer customer = (Customer)session.getAttribute("session_customer");
 	 out.print(customer.getEmail());
 	} %> --%>
-
-<div class="p-20">
+<div class="min-h-screen bg-blue-500">
+<%-- <div class="p-20">
 	<table border="1"
 		class="flex justify-center table-auto border-separate border-spacing-2 border border-slate-500 ">
 		
@@ -91,10 +94,51 @@
             <form action="http://localhost:8080/stocks/chart/${s.stockId}/${s.stockName}/${s.stockQuantity}/${s.stockRegion}" method="GET">
             	<button type="submit">View</button>
             </form>
-            
             </td>
         </tr>
     </c:forEach>
-		</div>
+		</table>
+</div> --%>
+		
+		
+<div class="overflow-x-auto relative shadow-md sm:rounded-lg  min-h-screen bg-white-500">
+    <table class="w-full text-sm text-left text-black-500 dark:text-black-400">
+        <thead class="text-xs text-black-700 uppercase dark:text-black-500">
+            <tr>
+                <th scope="col" class="py-3 px-6 bg-black-50 dark:bg-black-800">
+                    Region
+                </th>
+                <th scope="col" class="py-3 px-6">
+                    StockName
+                </th>
+                <th scope="col" class="py-3 px-6 bg-gray-50 dark:bg-gray-800">
+                    Info
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        <c:forEach items="${stockList}" var="s">
+            <tr class="border-b border-gray-200 dark:border-gray-700">
+                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                    <c:out value="${s.stockRegion}" />
+                </th>
+                <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                    <c:out value="${s.stockName}" />
+                </td>
+                
+                    <td class=" flex justify-center">
+            			<form action="http://localhost:8080/stocks/chart/${s.stockId}/${s.stockName}/${s.stockQuantity}/${s.stockRegion}" method="GET">
+            				<button class="font-medium text-black-700 dark:text-blue-500 hover:underline" type="submit">View</button>
+            			</form>
+            		</td>
+            </tr>
+           </c:forEach>
+        </tbody>
+    </table>
+</div>
+		
+		
+	
+</div>		
 </body>
 </html>

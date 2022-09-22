@@ -1,11 +1,13 @@
 package com.ab.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
@@ -24,14 +26,7 @@ public class StockController {
 	public ModelAndView allStocks(@ModelAttribute Stock stock, Model model){
 		
 		ModelAndView mv = new ModelAndView();
-		
-	//	Stock st = new Stock(stock.getStockId(),stock.getStockName(),stock.getStockRegion(),stock.getStockQuantity(),stock.getStockPrice());
-		
-		Stock st = stockService.getStocks(13);
-		
-		System.out.println("==============================================");
-		System.out.println(st);
-		model.addAttribute("session_st", st);
+
 		
 		List<Stock> stocks = stockService.displayStocks();				
 		
@@ -45,7 +40,27 @@ public class StockController {
 		
 	}
 	
-	
+	//Session
+		@GetMapping("/stocks/chart/{stockId}/{stockName}/{stockQuantity}/{stockRegion}")
+		public ModelAndView chart(@PathVariable("stockId") int stockId,@PathVariable("stockName") String stockName,@PathVariable("stockQuantity") int stockQuantity,@PathVariable("stockRegion") String stockRegion) {
+	      
+			ModelAndView mv = new ModelAndView();
+	        
+	        Stock st = new Stock();
+	        st.setStockId(stockId);
+			
+			st.setStockName(stockName);
+			
+			st.setStockRegion(stockRegion);
+			
+			st.setStockQuantity(stockQuantity);
+			
+			mv.addObject("stock",st); 
+			
+			mv.setViewName("stock_chart");
+			
+			return mv;
+		}
 	
 	
 }

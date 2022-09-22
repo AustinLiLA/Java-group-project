@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+     <%@ page import="com.ab.models.Customer" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -95,10 +95,22 @@ window.onload = function () {
 			<a href="http://localhost:8080/stocks" class="flex"> <span
 				class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Trading Platform</span>
 			</a>
-			<!-- <button data-collapse-toggle="mobile-menu" type="button"
-				class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-				aria-controls="mobile-menu-2" aria-expanded="false">
-				</button> -->
+			<%if (session.getAttribute("session_customer") != null) {%>
+			 <a  class="flex" href="http://localhost:8080/stocks"> <span
+				class="flex justify-center text-1xl font-semibold whitespace-nowrap dark:text-white bg-blue-300">
+				Balance: <%Customer customer1 = (Customer)session.getAttribute("session_customer");
+				   
+							out.print(customer1.getBalance());
+								%>
+				</span>
+			</a>
+			<% } else {%>
+				<a  class="flex" href="http://localhost:8080/stocks"> <span
+				class="flex justify-center text-1xl font-semibold whitespace-nowrap dark:text-white bg-blue-300">
+				Balance: ------
+				</span>
+			</a>
+			<% } %>
 			<div class="hidden w-full md:block md:w-auto" id="mobile-menu">
 				<ul
 					class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
@@ -113,12 +125,12 @@ window.onload = function () {
 						>Logout</a>
 					</li>
 					<% } else {%>
-					<li><a href="http://localhost:8080/register" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+					<li><a href="http://localhost:8080/register" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-black-700 md:p-0 dark:text-white"
 						aria-current="page"
 						>Register</a>	
 					</li>
 						</li>
-						<li><a href="http://localhost:8080/login" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+						<li><a href="http://localhost:8080/login" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-black-700 md:p-0 dark:text-white"
 						aria-current="page"
 						>Login</a>
 					</li>
@@ -129,11 +141,57 @@ window.onload = function () {
 		</div>
 	</nav>
 	<br>
-<h1> You have registered as <%= session.getAttribute("session_customer") %></h1>
-<center><label><h1><b>${stock.stockId}</b></h1></label></center>
+<%-- <h1> You have registered as <%= session.getAttribute("session_customer") %></h1>
+ --%>
+ <%-- <center><label><h1><b>${stock.stockId}</b></h1></label></center>
 <center><label><h1><b>${stock.stockName} </b></h1></label></center>
 <center><label><h1><b>${stock.stockRegion}</b></h1></label></center>
-<center><label><h1><b>${stock.stockQuantity}</b></h1></label></center>
+<center><label><h1><b>${stock.stockQuantity}</b></h1></label></center> --%>
+
+
+<!-- <!--  --> 
+
+
+<div class="overflow-x-auto relative shadow-md sm:rounded-lg ">
+    <table class="w-full text-sm text-left text-black-900 dark:text-black-900 bg-blue-500">
+        <thead class="text-xs text-black-700 uppercase dark:text-black-900">
+            <tr>
+            	<th scope="col" class="py-4 px-6 bg-black-50 dark:bg-black-800">
+                    Stock Id
+                </th>
+                <th scope="col" class="py-4 px-6 bg-black-50 dark:bg-black-800">
+                    Region
+                </th>
+                <th scope="col" class="py-4 px-6 bg-black-50 dark:bg-black-800">
+                    StockName
+                </th>
+                <th scope="col" class="py-4 px-6 bg-black-50 dark:bg-black-800">
+                    Quantity
+                </th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+            	<td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    <h1><b>${stock.stockId}</b></h1>
+                </td>
+                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    <h1><b>${stock.stockRegion}</b></h1>
+                </th>
+                <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    <h1><b>${stock.stockName}</b></h1>
+                </td>
+                <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    <h1><b>available</b></h1>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<!-- <!--  --> 
 
 <div id="chartContainer" style="height: 450px; width: 100%;"></div>
   
@@ -161,5 +219,4 @@ window.onload = function () {
 </div>
 </div>
 </body>
-
 </html>

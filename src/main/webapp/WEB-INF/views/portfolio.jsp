@@ -24,7 +24,7 @@
 			</a>
 			 <%if (session.getAttribute("session_customer") != null) {%>
 			 <a  class="flex" href="http://localhost:8080/stocks"> <span
-				class="flex justify-center text-1xl font-semibold whitespace-nowrap dark:text-white">
+				class="flex justify-center text-1xl font-semibold whitespace-nowrap dark:text-white bg-blue-300">
 				Balance: <%Customer customer1 = (Customer)session.getAttribute("session_customer");
 				   
 							out.print(customer1.getBalance());
@@ -39,7 +39,7 @@
 			</a>
 			<% } else {%>
 				<a  class="flex" href="http://localhost:8080/stocks"> <span
-				class="flex justify-center text-1xl font-semibold whitespace-nowrap dark:text-white">
+				class="flex justify-center text-1xl font-semibold whitespace-nowrap dark:text-white bg-blue-300">
 				Balance: ------
 				</span>
 			</a>
@@ -48,6 +48,9 @@
 				<ul
 					class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
 					<%if (session.getAttribute("session_customer") == null) {%>
+					<li><a href="http://localhost:8080/stocks"
+						class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+						aria-current="page">Stocks</a></li>
 					<li><a href="http://localhost:8080/login"
 						class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
 						aria-current="page">Login</a></li>
@@ -56,6 +59,9 @@
 						>Register</a>
 					</li>
 					<% } else {%>
+					<li><a href="http://localhost:8080/stocks"
+						class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+						aria-current="page">Stocks</a></li>
 					<li><a href="http://localhost:8080/logout" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
 						aria-current="page"
 						>Logout</a></li>
@@ -76,10 +82,10 @@
 							String email =(String)customer.getEmail();
 							
 									%>
-<h1>Welcome <%out.print(customer.getFirstName()); %></h1>
+<%-- <h1>Welcome <%out.print(customer.getFirstName()); %></h1> --%>
 
 
-<div class="p-20">
+<%-- <div class="p-20">
 	<table border="1"
 		class="flex justify-center table-auto border-separate border-spacing-2 border border-slate-500 ">
 		
@@ -102,12 +108,64 @@
             <td class="border border-slate-800"><c:out value="${od.orderType}" /></td>
             <td class="border border-slate-800"><c:out value="${od.orderPrice}" /></td>
             <td class="border border-slate-800"><c:out value="${od.orderQuantity}" /></td>
-<%--             <td class="border border-slate-800"><c:out value="${od.orderTimeStamp}" /></td>
- --%>            
+            <td class="border border-slate-800"><c:out value="${od.orderTimeStamp}" /></td>
+            
         </tr>
     </c:forEach>
     </table>
-		</div>
+		</div> --%>
 
+
+
+<div class="overflow-x-auto relative shadow-md sm:rounded-lg  min-h-screen bg-blue-500">
+    <table class="w-full text-sm text-left text-black-500 dark:text-black-400">
+        <thead class="text-xs text-black-700 uppercase dark:text-black-500">
+            <tr>
+                <th scope="col" class="py-3 px-6 bg-black-50 dark:bg-black-800">
+                    ID
+                </th>
+                <th scope="col" class="py-3 px-6">
+                    STOCK ID
+                </th>
+                <th scope="col" class="py-3 px-6 bg-gray-50 dark:bg-gray-800">
+                    REGION
+                </th>
+                 <th scope="col" class="py-3 px-6 bg-gray-50 dark:bg-gray-800">
+                    TYPE
+                </th>
+                <th scope="col" class="py-3 px-6 bg-gray-50 dark:bg-gray-800">
+                    PRICE
+                </th>
+                <th scope="col" class="py-3 px-6 bg-gray-50 dark:bg-gray-800">
+                    QUANTITY
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        <c:forEach items="${orderBookCustomerList}" var="od">
+            <tr class="border-b border-gray-200 dark:border-gray-700">
+                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                    <c:out value="${od.orderId}" />
+                </th>
+                <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                    <c:out value="${od.stockId}" />
+                </td>
+                <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                    <c:out value="${od.stockRegion}" />
+                </td>
+                <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                    <c:out value="${od.orderType}" />
+                </td>
+                <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                    <c:out value="${od.orderPrice}" />
+                </td>
+                <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                    <c:out value="${od.orderQuantity}" />
+                </td>
+            </tr>
+           </c:forEach>
+        </tbody>
+    </table>
+</div> 
 </body>
 </html>

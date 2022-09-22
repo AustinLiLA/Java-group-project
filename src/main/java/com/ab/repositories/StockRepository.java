@@ -12,7 +12,7 @@ import com.ab.models.Stock;
 @Repository
 public interface StockRepository extends JpaRepository<Stock, Integer>{
 
-	@Transactional
-	@Query("From Stock s WHERE s.stockId = :stockId")
-    public Stock findStocks(@Param("stockId") int stockId);
+	//@Transactional
+	//@Query("From Stock s WHERE s.stockId = :stockId")
+    //public Stock findStocks(@Param("stockId") int stockId);
 }

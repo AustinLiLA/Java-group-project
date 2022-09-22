@@ -30,7 +30,11 @@
 				</span>
 			</a>
 			<% } else {%>
-			
+					<a  class="flex" href="http://localhost:8080/stocks"> <span
+				class="flex justify-center text-1xl font-semibold whitespace-nowrap dark:text-white">
+				Balance: ------
+				</span>
+			</a>
 			<% } %>
 			
 			<div class="hidden w-full md:block md:w-auto" id="mobile-menu">

@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+	<%@ page import="com.ab.models.Customer" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,6 +22,21 @@
 			<a href="http://localhost:8080/stocks" class="flex"> <span
 				class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Trading Platform</span>
 			</a>
+			<%if (session.getAttribute("session_customer") != null) {%>
+			 <a  class="flex" href="http://localhost:8080/stocks"> <span
+				class="flex justify-center text-1xl font-semibold whitespace-nowrap dark:text-white">
+				Balance: <%Customer customer1 = (Customer)session.getAttribute("session_customer");
+							out.print(customer1.getBalance());
+									%>
+				</span>
+			</a>
+			<% } else {%>
+				<a  class="flex" href="http://localhost:8080/stocks"> <span
+				class="flex justify-center text-1xl font-semibold whitespace-nowrap dark:text-white">
+				Balance: ------
+				</span>
+			</a>
+			<% } %>
 			<!-- <button data-collapse-toggle="mobile-menu" type="button"
 				class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
 				aria-controls="mobile-menu-2" aria-expanded="false">

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 
+
 import com.ab.models.Customer;
 import com.ab.repositories.CustomerRepository;
 
@@ -27,6 +28,12 @@ public class CustomerServiceImpl implements CustomerService {
 		return customerRepository. findByRecord(email, password);
 
 
+	}
+
+	@Override
+	public void modifyCustomerBalance(double balance, int id) {
+		// TODO Auto-generated method stub
+		 customerRepository.reduceCustomerBalance(balance, id);
 	}
 
 	

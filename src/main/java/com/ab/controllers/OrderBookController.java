@@ -46,7 +46,21 @@ public class OrderBookController {
     }
 
     
+    @GetMapping("/stocks/orderbookCustomerId")
+    public ModelAndView getOrderBookCustomerId(@ModelAttribute("session_customer") Customer customer) {
+
+    	ModelAndView mv = new ModelAndView();
+    	 	 
+        List<OrderBook> orderBookCustomerList =  orderBookService.findCustomerOrders(customer.getCustomerId());
+		
+		System.out.println(orderBookCustomerList);
+		mv.addObject("orderBookCustomerList",orderBookCustomerList); 
+		
+		mv.setViewName("portfolio");
 	
+		return mv; 
+
+    }
 	
 	
 }

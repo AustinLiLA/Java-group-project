@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <%@ page import="com.ab.models.Customer" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,10 +21,22 @@
 			<a href="http://localhost:8080/stocks" class="flex"> <span
 				class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Trading Platform</span>
 			</a>
-			 <!-- <button data-collapse-toggle="mobile-menu" type="button"
-				class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-				aria-controls="mobile-menu-2" aria-expanded="false">
-			</button> -->
+			<%if (session.getAttribute("session_customer") != null) {%>
+			 <a  class="flex" href="http://localhost:8080/stocks"> <span
+				class="flex justify-center text-1xl font-semibold whitespace-nowrap dark:text-white">
+				Balance: <%Customer customer1 = (Customer)session.getAttribute("session_customer");
+							out.print(customer1.getBalance());
+									%>
+				</span>
+			</a>
+			<% } else {%>
+					<a  class="flex" href="http://localhost:8080/stocks"> <span
+				class="flex justify-center text-1xl font-semibold whitespace-nowrap dark:text-white">
+				Balance: ------
+				</span>
+			</a>
+			<% } %>
+			
 			<div class="hidden w-full md:block md:w-auto" id="mobile-menu">
 				<ul
 					class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
@@ -38,15 +51,25 @@
 					<% } else {%>
 					<li><a href="http://localhost:8080/logout" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
 						aria-current="page"
-						>Logout</a>
+						>Logout</a></li>
+					<li><a href="http://localhost:8080/stocks/orderbookCustomerId" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+						aria-current="page"
+						><%Customer customer = (Customer)session.getAttribute("session_customer");
+							String email =(String)customer.getEmail();
+							out.print(customer.getEmail());
+									%>
+					</a></li>
 							<% } %>
 				</ul>
 				
 			</div>
 		</div>
 	</nav>
+	<%-- <%if (session.getAttribute("session_customer") != null) {
+	 Customer customer = (Customer)session.getAttribute("session_customer");
+	 out.print(customer.getEmail());
+	} %> --%>
 
-<h1> You have registered as <%= session.getAttribute("session_customer") %></h1>
 <div class="p-20">
 	<table border="1"
 		class="flex justify-center table-auto border-separate border-spacing-2 border border-slate-500 ">

@@ -36,7 +36,6 @@ public class OrderBookController {
     	 	 
         List<OrderBook> orderBookList =  orderBookService.displayOrderBooks();
 		
-		System.out.println(orderBookList);
 		mv.addObject("orderBookList",orderBookList); 
 		
 		mv.setViewName("order_book");
@@ -47,13 +46,14 @@ public class OrderBookController {
 
     
     @GetMapping("/stocks/orderbookCustomerId")
-    public ModelAndView getOrderBookCustomerId(@ModelAttribute("session_customer") Customer customer) {
+    public ModelAndView getOrderBookCustomerId(@ModelAttribute("session_customer") Customer customer,Model model) {
 
     	ModelAndView mv = new ModelAndView();
-    	 	 
+    	    	 	 
         List<OrderBook> orderBookCustomerList =  orderBookService.findCustomerOrders(customer.getCustomerId());
 		
 		System.out.println(orderBookCustomerList);
+		
 		mv.addObject("orderBookCustomerList",orderBookCustomerList); 
 		
 		mv.setViewName("portfolio");

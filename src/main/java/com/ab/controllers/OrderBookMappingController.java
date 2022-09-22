@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ab.models.Customer;
 import com.ab.models.OrderBook;
+import com.ab.servicies.CustomerService;
 import com.ab.servicies.OrderBookService;
 
 
@@ -26,25 +27,40 @@ public class OrderBookMappingController {
 	@Autowired
 	private OrderBookService orderBookService;
 	
+	@Autowired
+	private CustomerService customerService;
+	
     @PostMapping("/stocks/orderInsert")
 	public ModelAndView newOrder(@RequestParam("order") String orderType,@RequestParam("quantity") int quantity,@RequestParam("price") double price,@RequestParam("stockRegion") String stockRegion,@RequestParam("stockId") int stockId, Model model) {
   	Customer user = (Customer) model.getAttribute("session_customer");
 	
-//		if(user==null) {
-//			return "noUser";
-//		}
-    	
-    	
-    	//change LocalDateTime format
+    	double diff = user.getBalance();
+
+  		if(diff > (price*quantity)) {
+  			
     	orderBookService.newOrder(new OrderBook(orderType,quantity,price,stockRegion,LocalDateTime.now(),user.getCustomerId(),stockId));
+    	
+  		}
+    	
+    	if (orderType.equalsIgnoreCase("sell")) {
+    	
+    	 diff += (price*quantity);
+    	 customerService.modifyCustomerBalance(diff, user.getCustomerId());
+    	
+    	}else if(orderType.equalsIgnoreCase("buy") && diff > (price*quantity)) {
+    		
+    	 diff -= (price*quantity);
+    	 customerService.modifyCustomerBalance(diff, user.getCustomerId());
+    	 
+    	}
+ 
+    	model.addAttribute("session_customer", new Customer(user.getCustomerId(),user.getFirstName(),user.getLastName(),user.getEmail(),user.getPassword(),diff));
+    	
     	ModelAndView mv = new ModelAndView();
 	 	 
         List<OrderBook> orderBookList =  orderBookService.displayOrderBooks();
 		mv.addObject("orderBookList",orderBookList); 
-		
-		mv.setViewName("order_book");
-	
-		
+		mv.setViewName("order_book");	
 		return mv; 
 	}
     
@@ -57,7 +73,7 @@ public class OrderBookMappingController {
 		mv.addObject("orderBookList",orderBookList); 
 		
 		mv.setViewName("order_book");
-	
+		
 		
 		return mv; 
 	}

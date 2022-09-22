@@ -20,6 +20,13 @@ public class StockServiceImpl implements StockService {
 	public List<Stock> displayStocks() {
 		return stockRepository.findAll();
 	}
+
+
+	@Override
+	public Stock getStocks(int id) {
+		// TODO Auto-generated method stub
+		return stockRepository.findStocks(id);
+	}
 	
 
 

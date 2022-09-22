@@ -3,6 +3,7 @@ package com.ab.servicies;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.ab.models.OrderBook;
@@ -24,6 +25,29 @@ public class OrderBookServiceImpl implements OrderBookService {
 	@Override
 	public List<OrderBook> displayOrderBooks(){
 		return  orderBookRepository.findAll();
+	}
+
+	@Override
+	public List<OrderBook> displayOrderBooksByPrice() {
+		return orderBookRepository.findAll(Sort.by(Sort.Direction.DESC, "orderPrice"));
+	}
+
+	@Override
+	public List<OrderBook> displayOrderBooksByQuantity() {
+		// TODO Auto-generated method stub
+		return orderBookRepository.findAll(Sort.by(Sort.Direction.DESC, "orderQuantity"));
+	}
+
+	@Override
+	public List<OrderBook> displayOrderBooksByRegion() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<OrderBook> displayOrderBooksByStockId() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

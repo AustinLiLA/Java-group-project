@@ -93,10 +93,11 @@ public class CustomerMappingController {
 	
 	//Registration-POST
  
-  @GetMapping("/Register")
+  @GetMapping("/register")
   public String showRegistrationForm (){
   	return "register";
   }
+  
   
 	  @PostMapping("/registerCustomer")
 	    public String registerProcess(Customer c) {

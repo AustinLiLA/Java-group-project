@@ -111,8 +111,8 @@
                 <th scope="col" class="py-3 px-6">
                     StockName
                 </th>
-                <th scope="col" class="py-3 px-6 bg-gray-50 dark:bg-gray-800">
-                    Info
+                <th scope="col" class="py-3 px-6">
+         
                 </th>
             </tr>
         </thead>

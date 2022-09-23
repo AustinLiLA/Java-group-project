@@ -56,7 +56,7 @@ window.onload = function () {
       enabled: false
     }
   });
-  var dataCount = 7000, ystart = 100, interval = 1000, xstart = (currentDate.getTime() - (7000 * 1000));
+  var dataCount = 7000, ystart = 1.115, interval = 1000, xstart = (currentDate.getTime() - (7123 * 100));
   updateChart(xstart, ystart, dataCount, interval);
    
   
@@ -64,7 +64,7 @@ window.onload = function () {
 	const demo = document.getElementById('price');	
     var xVal = xstart, yVal = ystart;
     for(var i = 0; i < length; i++) {
-      yVal = yVal +  Math.round(5 + Math.random() *(-5-5));
+      yVal = (yVal +  Math.round(5 + Math.random() *(-5-5))/55).toFixed(2);
       yVal = Math.min(Math.max(yVal, 5), 90);
       dataPoints.push({x: xVal,y: yVal});
       xVal += interval;

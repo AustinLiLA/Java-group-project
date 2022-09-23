@@ -210,7 +210,6 @@ window.onload = function () {
   <label for="order"class="block">Order Type:</label>
   <select name="order" id="order">
     <option value="buy" name="buy">Buy</option>
-    <option value="sell" name="sell">Sell</option>
   </select>
   <br><br>
   <button class="w-full px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900"type="submit" >Place Order</button>

@@ -198,7 +198,7 @@ window.onload = function () {
   <div class="flex items-center justify-center min-h-screen bg-blue-500">
   <div class="px-8 py-6 mx-4 mt-4 text-left bg-white shadow-lg md:w-1/3 lg:w-1/3 sm:w-1/3  rounded-lg">
   
-<form action="/stocks/orderInsert" 	method="POST">
+<form action="/stocks/orderbook" 	method="POST">
 <div class="mt-4">
   <label for="price"class="block">Stock Name: </label><strong class="flex items-center justify-center">${stock.stockName}</strong>
   <input class="w-full px-2 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600 flex items-center" type="hidden" id="stockId" name="stockId" value="${stock.stockId}"><br>

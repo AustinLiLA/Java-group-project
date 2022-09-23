@@ -9,7 +9,7 @@
 <head>
 <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 <meta charset="UTF-8">
-<title>My page</title>
+<title>Portfolio</title>
 
 
 </head>
@@ -62,6 +62,9 @@
 					<li><a href="http://localhost:8080/stocks"
 						class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
 						aria-current="page">Stocks</a></li>
+						<li><a href="http://localhost:8080/portfolio"
+						class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+						aria-current="page">Portfolio</a></li>
 					<li><a href="http://localhost:8080/logout" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
 						aria-current="page"
 						>Logout</a></li>
@@ -82,38 +85,7 @@
 							String email =(String)customer.getEmail();
 							
 									%>
-<%-- <h1>Welcome <%out.print(customer.getFirstName()); %></h1> --%>
 
-
-<%-- <div class="p-20">
-	<table border="1"
-		class="flex justify-center table-auto border-separate border-spacing-2 border border-slate-500 ">
-		
-		<tr>
-     <th class="border border-slate-700">ID</th>
-     <th class="border border-slate-700">STOCK ID</th>
-     <th class="border border-slate-700">REGION</th>
-     <th class="border border-slate-700">TYPE</th>
-     <th class="border border-slate-700">PRICE</th>
-     <th class="border border-slate-700">QUANTITY</th>
-<!--      <th class="border border-slate-700">TIMESTAMP</th>
- --> 
-     
-  </tr>
-    <c:forEach items="${orderBookCustomerList}" var="od">
-        <tr>
-            <td class="border border-slate-800"><c:out value="${od.orderId}" /></td>
-            <td class="border border-slate-800"><c:out value="${od.stockId}" /></td>
-            <td class="border border-slate-800"><c:out value="${od.stockRegion}" /></td>
-            <td class="border border-slate-800"><c:out value="${od.orderType}" /></td>
-            <td class="border border-slate-800"><c:out value="${od.orderPrice}" /></td>
-            <td class="border border-slate-800"><c:out value="${od.orderQuantity}" /></td>
-            <td class="border border-slate-800"><c:out value="${od.orderTimeStamp}" /></td>
-            
-        </tr>
-    </c:forEach>
-    </table>
-		</div> --%>
 
 
 
@@ -129,9 +101,6 @@
                 </th>
                 <th scope="col" class="py-3 px-6 bg-gray-50 dark:bg-gray-800">
                     REGION
-                </th>
-                 <th scope="col" class="py-3 px-6 bg-gray-50 dark:bg-gray-800">
-                    TYPE
                 </th>
                 <th scope="col" class="py-3 px-6 bg-gray-50 dark:bg-gray-800">
                     PRICE
@@ -152,9 +121,6 @@
                 </td>
                 <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
                     <c:out value="${od.stockRegion}" />
-                </td>
-                <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                    <c:out value="${od.orderType}" />
                 </td>
                 <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
                     <c:out value="${od.orderPrice}" />

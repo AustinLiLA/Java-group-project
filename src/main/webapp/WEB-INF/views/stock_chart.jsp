@@ -5,7 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-<title>Insert title here</title>
+<title>Stock Chart </title>
 <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.stock.min.js"></script>
 <script type="text/javascript">
 window.onload = function () {
@@ -64,7 +64,7 @@ window.onload = function () {
 	const demo = document.getElementById('price');	
     var xVal = xstart, yVal = ystart;
     for(var i = 0; i < length; i++) {
-      yVal = (yVal +  Math.round(5 + Math.random() *(-5-5))/55).toFixed(2);
+      yVal = (yVal +  Math.round(5 + Math.random() *(-5-5))/53).toFixed(3);
       yVal = Math.min(Math.max(yVal, 5), 90);
       dataPoints.push({x: xVal,y: yVal});
       xVal += interval;
@@ -198,7 +198,7 @@ window.onload = function () {
   <div class="flex items-center justify-center min-h-screen bg-blue-500">
   <div class="px-8 py-6 mx-4 mt-4 text-left bg-white shadow-lg md:w-1/3 lg:w-1/3 sm:w-1/3  rounded-lg">
   
-<form action="/stocks/orderbook" 	method="POST">
+<form action="/stocks/orderbook" method="POST">
 <div class="mt-4">
   <label for="price"class="block">Stock Name: </label><strong class="flex items-center justify-center">${stock.stockName}</strong>
   <input class="w-full px-2 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600 flex items-center" type="hidden" id="stockId" name="stockId" value="${stock.stockId}"><br>
@@ -206,7 +206,7 @@ window.onload = function () {
   <label for="price"class="block">Stock Price:</label>
   <input class="w-full px-2 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600 flex items-center"required type="text" id="price" name="price"><br>
   <label for="quantity"class="block">Quantity:</label>
-  <input class="w-full px-2 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"required type="number" id="quantity" name="quantity" max="${stock.stockQuantity}"><br>
+  <input class="w-full px-2 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"required type="number" id="quantity" name="quantity"><br>
   <label for="order"class="block">Order Type:</label>
   <select name="order" id="order">
     <option value="buy" name="buy">Buy</option>

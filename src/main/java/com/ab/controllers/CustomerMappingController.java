@@ -33,6 +33,9 @@ public class CustomerMappingController {
 	private StockService stockService;
 	
 	
+	
+	
+	
 	@ModelAttribute
 	public Customer customer() {
 		
@@ -94,7 +97,6 @@ public class CustomerMappingController {
 	
 	
 	//Registration-POST
- 
   @GetMapping("/register")
   public String showRegistrationForm (){
   	return "register";
@@ -107,19 +109,21 @@ public class CustomerMappingController {
 	    	Customer registeredCustomer = customerService.registerCustomer(c);
 	        	
 	    	if(registeredCustomer != null) {
-	    		
-	    		return "login";
+	    	 return "login";
 		   }
-	    	else {
-	    		return "register";
+	    	 return "register";
 	    	}
-	    }
+	    
 	  
-	  //Personal User page 
+	  //Personal User portfolio page 
 	//Login Operation -GET
 		@GetMapping("/portfolio")
-		public String customerProfile() {
-			
+		public String customerProfile(Model model) {
+			//use session to check if user is logged in when hit the portfolio link
+			Customer user = (Customer) model.getAttribute("session_customer");
+			if(user==null) {
+				return "noUser";
+			}
 			return "portfolio"; 
 		}
 

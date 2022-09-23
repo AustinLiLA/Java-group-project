@@ -22,6 +22,7 @@ public class StockController {
 	@Autowired
 	private StockService stockService;
 	
+	//view all stocks list
 	@GetMapping("/stocks")
 	public ModelAndView allStocks(@ModelAttribute Stock stock, Model model){
 		
@@ -41,6 +42,7 @@ public class StockController {
 	}
 	
 	//Session
+	//view a specific stock details and chart
 		@GetMapping("/stocks/chart/{stockId}/{stockName}/{stockQuantity}/{stockRegion}")
 		public ModelAndView chart(@PathVariable("stockId") int stockId,@PathVariable("stockName") String stockName,@PathVariable("stockQuantity") int stockQuantity,@PathVariable("stockRegion") String stockRegion) {
 	      

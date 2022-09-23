@@ -52,8 +52,6 @@ public class OrderBookServiceImpl implements OrderBookService {
 	@Override
 	public List<OrderBook> findCustomerOrders(int id) {
 		// TODO Auto-generated method stub
-		
-		System.out.println(orderBookRepository.showOrderBookCustomerId(id));
 		return orderBookRepository.showOrderBookCustomerId(id);
 	}
 

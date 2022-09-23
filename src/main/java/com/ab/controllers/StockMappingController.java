@@ -13,10 +13,10 @@ public class StockMappingController {
 		return "stock_chart"; 
 	}
 	
-	@GetMapping("/stocks/orderbook")
-	public String orderBook() {			
-		return "order_book"; 
-	}
+//	@GetMapping("/stocks/orderbookMap")
+//	public String orderBook() {			
+//		return "order_book"; 
+//	}
 
 	
 }

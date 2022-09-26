@@ -94,12 +94,7 @@
 					<li><a href="http://localhost:8080/stocks"
 						class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
 						aria-current="page">Stocks</a></li>
-						<li><a href="http://localhost:8080/portfolio"
-						class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-						aria-current="page">Portfolio</a></li>
-					<li><a href="http://localhost:8080/logout" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-						aria-current="page"
-						>Logout</a></li>
+						
 						
 						
 					<div class="dropdown">
@@ -109,9 +104,10 @@
 							String email =(String)customer.getEmail();
 							out.print(customer.getEmail());%>
 						</button>
-					<div class="dropdown-content">
+					<div class="dropdown-content opacity-75">
  					<a href="http://localhost:8080/portfolio">Portfolio</a>
  					<a href="http://localhost:8080/balance">Balance</a>
+ 					<a href="http://localhost:8080/logout">Logout</a>
 					</div>
 					</a></li>
 					</div>

@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ page import="com.ab.models.Customer" %>
-        <%@ page import="com.ab.models.Stock" %>
-    <%@ page import="java.util.List" %>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 <style>
 .dropbtn {
   /* background-color: #04AA6D;
@@ -43,11 +43,7 @@
 
 .dropdown:hover .dropbtn {/* background-color: #3e8e41; */}
 </style>
-<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-<meta charset="UTF-8">
-<title>Portfolio</title>
-
-
+<title>Balance Page</title>
 </head>
 <body>
 <!-- NAVBAR -->
@@ -98,85 +94,45 @@
 					<li><a href="http://localhost:8080/stocks"
 						class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
 						aria-current="page">Stocks</a></li>
-						<!-- <li><a href="http://localhost:8080/portfolio"
+						<li><a href="http://localhost:8080/portfolio"
 						class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
 						aria-current="page">Portfolio</a></li>
 					<li><a href="http://localhost:8080/logout" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
 						aria-current="page"
-						>Logout</a></li> -->
+						>Logout</a></li>
+						
 						
 					<div class="dropdown">
-						 	<li><a href="http://localhost:8080/stocks/orderbookCustomerId" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-						aria-current="page"
-						>
-						<button class="dropbtn">
+						<button class="dropbtn block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+						aria-current="page">
 						<%Customer customer = (Customer)session.getAttribute("session_customer");
 							String email =(String)customer.getEmail();
 							out.print(customer.getEmail());%>
 						</button>
 					<div class="dropdown-content">
  					<a href="http://localhost:8080/portfolio">Portfolio</a>
- 					<a href="http://localhost:8080/logout">Logout</a>
+ 					<a href="http://localhost:8080/balance">Balance</a>
 					</div>
 					</a></li>
 					</div>
 							<% } %>
+							
 				</ul>
 				
 			</div>
 		</div>
 	</nav>
-<%Customer customer = (Customer)session.getAttribute("session_customer");
-							String email =(String)customer.getEmail();
-							
-									%>
+	<div class="min-h-screen bg-blue-500">	
+<h1>Balance Page</h1>
+<div class="flex items-center bg-blue-500 text-center">
+	<label>Account Balance:  </label> <h1><%Customer customer1 = (Customer)session.getAttribute("session_customer"); out.print(customer1.getBalance()); %></h1><br></br>
+	</br>
+	<button>Make a deposit</button>
+	</br>
+	<button>Widthraw money</button>
+</div>
+</div>
+<h3></h3>
 
-
-
-
-<div class="overflow-x-auto relative shadow-md sm:rounded-lg  min-h-screen bg-blue-500">
-    <table class="w-full text-sm text-left text-black-500 dark:text-black-400">
-        <thead class="text-xs text-black-700 uppercase dark:text-black-500">
-            <tr>
-                <th scope="col" class="py-3 px-6 bg-black-50 dark:bg-black-800">
-                    ID
-                </th>
-                <th scope="col" class="py-3 px-6">
-                    STOCK ID
-                </th>
-                <th scope="col" class="py-3 px-6 bg-gray-50 dark:bg-gray-800">
-                    REGION
-                </th>
-                <th scope="col" class="py-3 px-6 bg-gray-50 dark:bg-gray-800">
-                    PRICE
-                </th>
-                <th scope="col" class="py-3 px-6 bg-gray-50 dark:bg-gray-800">
-                    QUANTITY
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-        <c:forEach items="${orderBookCustomerList}" var="od">
-            <tr class="border-b border-gray-200 dark:border-gray-700">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                    <c:out value="${od.orderId}" />
-                </th>
-                <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                    <c:out value="${od.stockId}" />
-                </td>
-                <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                    <c:out value="${od.stockRegion}" />
-                </td>
-                <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                    <c:out value="${od.orderPrice}" />
-                </td>
-                <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                    <c:out value="${od.orderQuantity}" />
-                </td>
-            </tr>
-           </c:forEach>
-        </tbody>
-    </table>
-</div> 
 </body>
 </html>

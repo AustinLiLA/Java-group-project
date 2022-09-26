@@ -100,7 +100,9 @@ window.onload = function () {
 	const demo = document.getElementById('price');	
     var xVal = xstart, yVal = ystart;
     for(var i = 0; i < length; i++) {
+
       yVal = (yVal +  Math.round(5 + Math.random() *(-5-5))/53).toFixed(3);
+
       yVal = Math.min(Math.max(yVal, 5), 90);
       dataPoints.push({x: xVal,y: yVal});
       xVal += interval;

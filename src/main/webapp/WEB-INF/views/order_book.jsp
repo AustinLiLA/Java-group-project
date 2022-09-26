@@ -44,9 +44,6 @@
 					<li><a href="http://localhost:8080/stocks"
 						class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
 						aria-current="page">Stocks</a></li>
-					<!-- <li><a href="http://localhost:8080/portfolio"
-						class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-						aria-current="page">Portfolio</a></li> -->
 						<li><a href="http://localhost:8080/logout" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
 						aria-current="page"
 						>Logout</a>
@@ -56,43 +53,6 @@
 			</div>
 		</div>
 	</nav>
-
-<%-- 
-<div class="p-20">
-	<table border="1"
-		class="flex justify-center table-auto border-separate border-spacing-2 border border-slate-500 ">
-		
-		<tr>
-     <th class="border border-slate-700">ID</th>
-     <th class="border border-slate-700">STOCK ID</th>
-     <th class="border border-slate-700">CUSTOMER ID</th>
-     <th class="border border-slate-700">REGION</th>
-     <th class="border border-slate-700">TYPE</th>
-     <th class="border border-slate-700">
-     <a href="/stocks/orderInsert/orderByPrice">PRICE</a>
-     </th>
-          <th class="border border-slate-700">
-     <a href="/stocks/orderInsert/orderByQuantity">QUANTITY</a>
-     </th>
-     <th class="border border-slate-700">TIMESTAMP</th>
-     
- 
-     
-  </tr>
-    <c:forEach items="${orderBookList}" var="od">
-        <tr>
-            <td class="border border-slate-800"><c:out value="${od.orderId}" /></td>
-            <td class="border border-slate-800"><c:out value="${od.stockId}" /></td>
-            <td class="border border-slate-800"><c:out value="${od.customerId}" /></td>
-            <td class="border border-slate-800"><c:out value="${od.stockRegion}" /></td>
-            <td class="border border-slate-800"><c:out value="${od.orderType}" /></td>
-            <td class="border border-slate-800"><c:out value="${od.orderPrice}" /></td>
-            <td class="border border-slate-800"><c:out value="${od.orderQuantity}"/></td>
-             <td class="border border-slate-800"><c:out value="${od.timestamp}"/></td> 
-        </tr>
-    </c:forEach>
-    </table>
-</div> --%>
 
  <div class="overflow-x-auto relative shadow-md sm:rounded-lg  min-h-screen bg-blue-500">
     <table class="w-full text-sm text-left text-black-500 dark:text-black-400">

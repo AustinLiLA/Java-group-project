@@ -5,6 +5,42 @@
 <head>
 <meta charset="ISO-8859-1">
 <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+<style>
+.dropbtn {
+  /* background-color: #04AA6D;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;  */
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  /* background-color: #f1f1f1; */
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: white;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {/* background-color: #3e8e41; */}
+</style>
 <title>Stock Chart </title>
 <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.stock.min.js"></script>
 <script type="text/javascript">
@@ -120,17 +156,27 @@ window.onload = function () {
 
 
 					<%if (session.getAttribute("session_customer") != null) {%>
-						<li><a href="http://localhost:8080/logout" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-						aria-current="page"
-						>Logout</a>
-					</li>
-					<% } else {%>
-					<li><a href="http://localhost:8080/register" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-black-700 md:p-0 dark:text-white"
+					<div class="dropdown">
+						<button class="dropbtn block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+						aria-current="page" disabled="disabled">
+						<%Customer customer = (Customer)session.getAttribute("session_customer");
+							String email =(String)customer.getEmail();
+							out.print(customer.getEmail());%>
+						</button>
+					<div class="dropdown-content">
+ 					<a href="http://localhost:8080/portfolio">Portfolio</a>
+ 					<a href="http://localhost:8080/balance">Balance</a>
+ 					<a href="http://localhost:8080/logout">Logout</a>
+					</div>
+					</div>
+						
+					<% } else{%>
+					<li><a href="http://localhost:8080/register" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
 						aria-current="page"
 						>Register</a>	
 					</li>
-						</li>
-						<li><a href="http://localhost:8080/login" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-black-700 md:p-0 dark:text-white"
+						
+						<li><a href="http://localhost:8080/login" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
 						aria-current="page"
 						>Login</a>
 					</li>
@@ -141,15 +187,7 @@ window.onload = function () {
 		</div>
 	</nav>
 	<br>
-<%-- <h1> You have registered as <%= session.getAttribute("session_customer") %></h1>
- --%>
- <%-- <center><label><h1><b>${stock.stockId}</b></h1></label></center>
-<center><label><h1><b>${stock.stockName} </b></h1></label></center>
-<center><label><h1><b>${stock.stockRegion}</b></h1></label></center>
-<center><label><h1><b>${stock.stockQuantity}</b></h1></label></center> --%>
 
-
-<!-- <!--  --> 
 
 
 <div class="overflow-x-auto relative shadow-md sm:rounded-lg ">

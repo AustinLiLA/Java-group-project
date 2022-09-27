@@ -6,7 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-<title>Insert title here</title>
+<title>Order Book Show</title>
 </head>
 <body>
 <center><label><h1><b>${orderbook.price}</b></h1></label></center>
@@ -77,6 +77,5 @@
     </c:forEach>
     </table>
 		</div>
-
 </body>
 </html>

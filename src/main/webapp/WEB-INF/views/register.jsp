@@ -21,7 +21,7 @@
 			
 			<%if (session.getAttribute("session_customer") != null) {%>
 			 <a  class="flex" href="http://localhost:8080/stocks"> <span
-				class="flex justify-center text-1xl font-semibold whitespace-nowrap dark:text-white">
+				class="flex justify-center text-1xl font-semibold whitespace-nowrap dark:text-white bg-blue-300 bg-blue-300">
 				Balance: <%Customer customer1 = (Customer)session.getAttribute("session_customer");
 							out.print(customer1.getBalance());
 									%>
@@ -29,7 +29,7 @@
 			</a>
 			<% } else {%>
 					<a  class="flex" href="http://localhost:8080/stocks"> <span
-				class="flex justify-center text-1xl font-semibold whitespace-nowrap dark:text-white">
+				class="flex justify-center text-1xl font-semibold whitespace-nowrap dark:text-white bg-blue-300 bg-blue-300">
 				Balance: ------
 				</span>
 			</a>

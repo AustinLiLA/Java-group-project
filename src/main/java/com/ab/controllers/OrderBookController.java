@@ -28,22 +28,22 @@ public class OrderBookController {
 	@Autowired
 	private OrderBookService orderBookService;
 	
+	//Redundant code?????????????/
+//    @GetMapping("/stocks/orderbookShow")
+//    public ModelAndView getOrderBook() {
+//
+//    	ModelAndView mv = new ModelAndView();
+//    	 	 
+//        List<OrderBook> orderBookList =  orderBookService.displayOrderBooks();
+//		
+//		mv.addObject("orderBookList",orderBookList); 
+//		
+//		mv.setViewName("order_book");
+//	
+//		return mv; 
+//
+//    }
 	
-    @GetMapping("/stocks/orderbookShow")
-    public ModelAndView getOrderBook() {
-
-    	ModelAndView mv = new ModelAndView();
-    	 	 
-        List<OrderBook> orderBookList =  orderBookService.displayOrderBooks();
-		
-		mv.addObject("orderBookList",orderBookList); 
-		
-		mv.setViewName("order_book");
-	
-		return mv; 
-
-    }
-
     
     @GetMapping("/stocks/orderbookCustomerId")
     public ModelAndView getOrderBookCustomerId(@ModelAttribute("session_customer") Customer customer,Model model) {

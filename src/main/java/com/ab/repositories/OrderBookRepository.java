@@ -15,7 +15,7 @@ import com.ab.models.OrderBook;
 public interface OrderBookRepository  extends JpaRepository<OrderBook, Integer> {
 
 	
-	@Transactional
+@Transactional
  @Query("FROM OrderBook ob WHERE ob.customerId = :customerId")
 public List<OrderBook> showOrderBookCustomerId(@Param("customerId")int customerId);
 	

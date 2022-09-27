@@ -30,13 +30,18 @@ public class OrderBookMappingController {
 	@Autowired
 	private CustomerService customerService;
 	
-    @PostMapping("/stocks/orderInsert")
+	//global ModelAndView variable
+	ModelAndView mv = new ModelAndView();;
+	
+    @PostMapping("/stocks/orderbook")
 	public ModelAndView newOrder(@RequestParam("order") String orderType,@RequestParam("quantity") int quantity,@RequestParam("price") double price,@RequestParam("stockRegion") String stockRegion,@RequestParam("stockId") int stockId, Model model) {
   	Customer user = (Customer) model.getAttribute("session_customer");
-	
-    	double diff = user.getBalance();
+  	
+  		if(user != null) {
+  		
+    	double currentBalance = user.getBalance();
 
-  		if(diff > (price*quantity)) {
+  		if(currentBalance > (price*quantity)) {
   			
     	orderBookService.newOrder(new OrderBook(orderType,quantity,price,stockRegion,LocalDateTime.now(),user.getCustomerId(),stockId));
     	
@@ -44,19 +49,32 @@ public class OrderBookMappingController {
     	
     	if (orderType.equalsIgnoreCase("sell")) {
     	
-    	 diff += (price*quantity);
-    	 customerService.modifyCustomerBalance(diff, user.getCustomerId());
+    	 currentBalance += (price*quantity);
+    	 customerService.modifyCustomerBalance(currentBalance, user.getCustomerId());
     	
-    	}else if(orderType.equalsIgnoreCase("buy") && diff > (price*quantity)) {
+    	}else if(orderType.equalsIgnoreCase("buy") && currentBalance > (price*quantity)) {
     		
-    	 diff -= (price*quantity);
-    	 customerService.modifyCustomerBalance(diff, user.getCustomerId());
+    	 currentBalance -= (price*quantity);
+    	 customerService.modifyCustomerBalance(currentBalance, user.getCustomerId());
     	 
     	}
  
-    	model.addAttribute("session_customer", new Customer(user.getCustomerId(),user.getFirstName(),user.getLastName(),user.getEmail(),user.getPassword(),diff));
+    	model.addAttribute("session_customer", new Customer(user.getCustomerId(),user.getFirstName(),user.getLastName(),user.getEmail(),user.getPassword(),currentBalance));
     	
-    	ModelAndView mv = new ModelAndView();
+	 	 
+        List<OrderBook> orderBookList =  orderBookService.displayOrderBooks();
+		mv.addObject("orderBookList",orderBookList); 
+		mv.setViewName("order_book");	
+		return mv; 
+	}else {
+		mv.setViewName("noUser");
+		return mv;
+	}
+	}
+  		
+    
+    @GetMapping("/stocks/orderbook")
+	public ModelAndView newOrder(Model model) {	 
 	 	 
         List<OrderBook> orderBookList =  orderBookService.displayOrderBooks();
 		mv.addObject("orderBookList",orderBookList); 
@@ -64,10 +82,8 @@ public class OrderBookMappingController {
 		return mv; 
 	}
     
-    @GetMapping("/stocks/orderInsert/orderByPrice")
+    @GetMapping("/stocks/orderbook/orderByPrice")
 	public ModelAndView newOrder2() {
-	
-    	ModelAndView mv = new ModelAndView();
 	 	 
         List<OrderBook> orderBookList =  orderBookService.displayOrderBooksByPrice();
 		mv.addObject("orderBookList",orderBookList); 
@@ -79,10 +95,8 @@ public class OrderBookMappingController {
 	}
     
 
-    @GetMapping("/stocks/orderInsert/orderByQuantity")
+    @GetMapping("/stocks/orderbook/orderByQuantity")
 	public ModelAndView newOrder3() {
-	
-    	ModelAndView mv = new ModelAndView();
 	 	 
         List<OrderBook> orderBookList =  orderBookService.displayOrderBooksByQuantity();
 		mv.addObject("orderBookList",orderBookList); 

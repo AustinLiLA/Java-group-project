@@ -2,14 +2,14 @@ package com.ab.controllers;
 
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -28,40 +28,32 @@ public class OrderBookController {
 	@Autowired
 	private OrderBookService orderBookService;
 	
-	//Redundant code?????????????/
-//    @GetMapping("/stocks/orderbookShow")
-//    public ModelAndView getOrderBook() {
-//
-//    	ModelAndView mv = new ModelAndView();
-//    	 	 
-//        List<OrderBook> orderBookList =  orderBookService.displayOrderBooks();
-//		
-//		mv.addObject("orderBookList",orderBookList); 
-//		
-//		mv.setViewName("order_book");
-//	
-//		return mv; 
-//
-//    }
+	
 	
     
-    @GetMapping("/stocks/orderbookCustomerId")
-    public ModelAndView getOrderBookCustomerId(@ModelAttribute("session_customer") Customer customer,Model model) {
-
+    @GetMapping("/portfolio")
+    public ModelAndView getOrderBookCustomerId(@ModelAttribute("session_customer") Customer customer,@ModelAttribute("session_stock") List<Stock> stock,Model model) {
+    	Customer user = (Customer) model.getAttribute("session_customer");
     	ModelAndView mv = new ModelAndView();
     	    	 	 
         List<OrderBook> orderBookCustomerList =  orderBookService.findCustomerOrders(customer.getCustomerId());
+  
+        List<OrderBook> groupStocks = orderBookService.groupStocks(stock.get(0).getStockId(), customer.getCustomerId());
+        
+       
 		
-		System.out.println(orderBookCustomerList);
 		
-		mv.addObject("orderBookCustomerList",orderBookCustomerList); 
 		
-		mv.setViewName("portfolio");
-	
-		return mv; 
+			mv.setViewName("portfolio");
+			mv.addObject("orderBookCustomerList",orderBookCustomerList); 
+			mv.addObject("groupStocks",groupStocks); 
 
-    }
+			return mv;
 	
-	
+
+    
 }
+}
+	
+
 

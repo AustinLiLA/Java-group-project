@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.ab.models.Stock;
 import com.ab.servicies.StockService;
 
-@SessionAttributes({"session_stock","session_st"})
+@SessionAttributes({"session_stock","session_st","session_customer"})
 @RestController
 public class StockController {
 
@@ -27,7 +27,6 @@ public class StockController {
 	public ModelAndView allStocks(@ModelAttribute Stock stock, Model model){
 		
 		ModelAndView mv = new ModelAndView();
-
 		
 		List<Stock> stocks = stockService.displayStocks();				
 		

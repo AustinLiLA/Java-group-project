@@ -1,8 +1,10 @@
 package com.ab.servicies;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.ab.models.OrderBook;
+import com.ab.models.Stock;
 
 public interface OrderBookService {
 	
@@ -16,7 +18,7 @@ public interface OrderBookService {
 	
 	public List<OrderBook> findCustomerOrders(int id);
 	
-	
+	public List<OrderBook> groupStocks(int stockId,int customerId);
 	
 
 }

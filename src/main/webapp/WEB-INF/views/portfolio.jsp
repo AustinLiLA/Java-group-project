@@ -125,10 +125,43 @@
 							
 									%>
 
-
+<div class="flex items-center justify-center min-h-screen bg-blue-500">
+    	<div class="px-8 py-6 mx-4 mt-4 text-left bg-white shadow-lg md:w-1/3 lg:w-1/3 sm:w-1/3  rounded-lg">
+        <div class="flex justify-center">
+        </div>
+        <h3 class="text-3xl font-bold text-center">Deposit</h3> 
+        <form action="http://localhost:8080/depositBalance" method="post">
+            <div class="mt-4">
+                <div class="mt-4">
+                    <label class="block" for="deposit">Amount</label>
+                            <input type="number" placeholder="Amount"
+                                class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" name="deposit">
+                </div> 
+                <div class="flex">
+                    <button class="w-full px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900"type="submit" name="Submit">Deposit</button>
+                </div>
+            </div>
+        </form>
+        <h3 class="text-3xl font-bold text-center">Withdraw</h3> 
+        <form action="http://localhost:8080/withdrawBalance" method="post">
+            <div class="mt-4">
+                <div class="mt-4">
+                    <label class="block" for="withdraw">Amount</label>
+                            <input type="number" placeholder="Amount"
+                                class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" name="withdraw">
+                </div> 
+                <div class="flex">
+                    <button class="w-full px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900"type="submit" name="Submit">Withdraw</button>
+                </div>
+            </div>
+        </form>
+       
+    </div>
+</div> 
 
 
 <div class="overflow-x-auto relative shadow-md sm:rounded-lg  min-h-screen bg-blue-500">
+<form action="http://localhost:8080/portfolio" method="get">
     <table class="w-full text-sm text-left text-black-500 dark:text-black-400">
         <thead class="text-xs text-black-700 uppercase dark:text-black-500">
             <tr>
@@ -171,6 +204,56 @@
            </c:forEach>
         </tbody>
     </table>
+    </form>
+</div> 
+
+
+<hr>
+<div class="overflow-x-auto relative shadow-md sm:rounded-lg  min-h-screen bg-blue-500">
+<form action="http://localhost:8080/portfolio" method="get">
+    <table class="w-full text-sm text-left text-black-500 dark:text-black-400">
+        <thead class="text-xs text-black-700 uppercase dark:text-black-500">
+            <tr>
+                <th scope="col" class="py-3 px-6 bg-black-50 dark:bg-black-800">
+                    ID
+                </th>
+                <th scope="col" class="py-3 px-6">
+                    STOCK ID
+                </th>
+                <th scope="col" class="py-3 px-6 bg-gray-50 dark:bg-gray-800">
+                    REGION
+                </th>
+                <th scope="col" class="py-3 px-6 bg-gray-50 dark:bg-gray-800">
+                    PRICE
+                </th>
+                <th scope="col" class="py-3 px-6 bg-gray-50 dark:bg-gray-800">
+                    QUANTITY
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        <c:forEach items="${groupStocks}" var="gp">
+            <tr class="border-b border-gray-200 dark:border-gray-700">
+                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                    <c:out value="${gp.orderId}" />
+                </th>
+                <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                    <c:out value="${gp.stockId}" />
+                </td>
+                <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                    <c:out value="${gp.stockRegion}" />
+                </td>
+                <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                    <c:out value="${gp.orderPrice}" />
+                </td>
+                <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                    <c:out value="${gp.orderQuantity}" />
+                </td>
+            </tr>
+           </c:forEach>
+        </tbody>
+    </table>
+    </form>
 </div> 
 </body>
 </html>

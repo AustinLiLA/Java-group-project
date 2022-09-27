@@ -31,7 +31,7 @@ public class OrderBookMappingController {
 	private CustomerService customerService;
 	
 	//global ModelAndView variable
-	ModelAndView mv = new ModelAndView();;
+	ModelAndView mv = new ModelAndView();
 	
     @PostMapping("/stocks/orderbook")
 	public ModelAndView newOrder(@RequestParam("order") String orderType,@RequestParam("quantity") int quantity,@RequestParam("price") double price,@RequestParam("stockRegion") String stockRegion,@RequestParam("stockId") int stockId, Model model) {
@@ -106,6 +106,8 @@ public class OrderBookMappingController {
 		
 		return mv; 
 	}
+    
+    
     
     
 }

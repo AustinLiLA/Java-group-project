@@ -62,6 +62,8 @@ public class CustomerMappingController {
 	  
 	  model.addAttribute("session_customer", loginCustomer);
 	  
+	  
+	 
 	  if(loginCustomer != null) {
 	    	List<Stock> stocks = stockService.displayStocks();			
 	    	mv.addObject("stockList",stocks); 	

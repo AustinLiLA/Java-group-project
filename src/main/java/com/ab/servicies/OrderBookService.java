@@ -17,4 +17,8 @@ public interface OrderBookService {
 	public List<OrderBook> displayOrderBooksByStockId();
 	
 	public List<OrderBook> findCustomerOrders(int id);
+	
+//	public List<OrderBook> groupStocks(int stockId,int customerId);
+	
+
 }

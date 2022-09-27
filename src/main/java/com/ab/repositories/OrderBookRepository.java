@@ -5,6 +5,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.repository.query.Param;
@@ -21,4 +22,11 @@ public interface OrderBookRepository  extends JpaRepository<OrderBook, Integer> 
  @Query("FROM OrderBook ob WHERE ob.customerId = :customerId")
 public List<OrderBook> showOrderBookCustomerId(@Param("customerId")int customerId);
 	
+
+//@Transactional
+//@Query("FROM OrderBook ob where ob.customerId = :customerId")
+//@Query(value = "select *,count(OrderBook.customerId) as numberOfOrders from OrderBook",nativeQuery = true)
+//public List<OrderBook> groupStocks(@Param("stockId")int stockId,@Param("customerId") int customerId);
+//}
+
 }

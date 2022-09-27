@@ -25,21 +25,12 @@ public List<OrderBook> showOrderBookCustomerId(@Param("customerId")int customerI
 
 //@Transactional
 //@Query("FROM OrderBook ob where ob.customerId = :customerId")
-@Query(value = "select *,count(OrderBook.customerId) as numberOfOrders from OrderBook",nativeQuery = true)
-public List<OrderBook> groupStocks(@Param("stockId")int stockId,@Param("customerId") int customerId);
-}
-
-
-//@Query("select new com.demo.entities.CategoryGroup(p.category.id as categoryId, "
-//		+ "min(p.price) as minPrice, "
-//		+ "max(p.price) as maxPrice, "
-//		+ "sum(p.quantity) as sumQuantity, "
-//		+ "count(p.id) as countProduct, "
-//		+ "avg(p.price) as avgPrice) "
-//		+ "from Product p "
-//		+ "group by p.category.id")
+//@Query(value = "select *,count(OrderBook.customerId) as numberOfOrders from OrderBook",nativeQuery = true)
+//public List<OrderBook> groupStocks(@Param("stockId")int stockId,@Param("customerId") int customerId);
+//}
 
 
 //SELECT Shippers.ShipperName,COUNT(Orders.OrderID) AS NumberOfOrders FROM Orders
 //LEFT JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID
 //GROUP BY ShipperName;
+}

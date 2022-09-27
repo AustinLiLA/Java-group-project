@@ -32,13 +32,13 @@ public class OrderBookController {
 	
     
     @GetMapping("/portfolio")
-    public ModelAndView getOrderBookCustomerId(@ModelAttribute("session_customer") Customer customer,@ModelAttribute("session_stock") List<Stock> stock,Model model) {
+    public ModelAndView getOrderBookCustomerId(@ModelAttribute("session_customer") Customer customer,Stock stock,Model model) {
     	Customer user = (Customer) model.getAttribute("session_customer");
     	ModelAndView mv = new ModelAndView();
     	    	 	 
         List<OrderBook> orderBookCustomerList =  orderBookService.findCustomerOrders(customer.getCustomerId());
   
-        List<OrderBook> groupStocks = orderBookService.groupStocks(stock.get(0).getStockId(), customer.getCustomerId());
+//        List<OrderBook> groupStocks = orderBookService.groupStocks(stock.getStockId(), customer.getCustomerId());
         
        
 		
@@ -46,7 +46,7 @@ public class OrderBookController {
 		
 			mv.setViewName("portfolio");
 			mv.addObject("orderBookCustomerList",orderBookCustomerList); 
-			mv.addObject("groupStocks",groupStocks); 
+//			mv.addObject("groupStocks",groupStocks); 
 
 			return mv;
 	

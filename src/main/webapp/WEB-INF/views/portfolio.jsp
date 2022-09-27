@@ -208,7 +208,7 @@
 </div> 
 
 
-<hr>
+<%-- <hr>
 <div class="overflow-x-auto relative shadow-md sm:rounded-lg  min-h-screen bg-blue-500">
 <form action="http://localhost:8080/portfolio" method="get">
     <table class="w-full text-sm text-left text-black-500 dark:text-black-400">
@@ -254,6 +254,6 @@
         </tbody>
     </table>
     </form>
-</div> 
+</div>  --%>
 </body>
 </html>

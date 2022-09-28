@@ -19,10 +19,13 @@ public interface CustomerRepository extends JpaRepository<Customer,Integer> {
 	@Query("From Customer c WHERE c.email = :email and c.password = :password")
     public Customer findByRecord(@Param("email") String email,@Param("password") String password);
 	
+	
+	
 	@Transactional
 	@Modifying
 	@Query("UPDATE Customer c SET c.balance = :balance WHERE c.customerId = :customerId")
-   public void reduceCustomerBalance(@Param("balance")double balance,@Param("customerId") int customerId);
+   public void modifyCustomerBalance(@Param("balance")double balance,@Param("customerId") int customerId);
+	
 	
 	
 }

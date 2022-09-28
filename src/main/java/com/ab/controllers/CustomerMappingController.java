@@ -15,6 +15,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ab.models.Customer;
+import com.ab.models.OrderBook;
 import com.ab.models.Stock;
 import com.ab.servicies.CustomerService;
 import com.ab.servicies.StockService;
@@ -113,18 +114,8 @@ public class CustomerMappingController {
 	    	}
 	    
 	  
-	  //Personal User portfolio page 
-	//Login Operation -GET
-		@GetMapping("/portfolio")
-		public String customerProfile(Model model) {
-			//use session to check if user is logged in when hit the portfolio link
-			Customer user = (Customer) model.getAttribute("session_customer");
-			if(user==null) {
-				return "noUser";
-			}
-			return "portfolio"; 
-		}
 
-		
+
+
 		
 }

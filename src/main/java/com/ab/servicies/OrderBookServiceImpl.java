@@ -1,13 +1,16 @@
 package com.ab.servicies;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.ab.models.OrderBook;
+import com.ab.models.Stock;
 import com.ab.repositories.OrderBookRepository;
+import com.ab.repositories.StockRepository;
 
 @Service
 public class OrderBookServiceImpl implements OrderBookService {
@@ -15,6 +18,7 @@ public class OrderBookServiceImpl implements OrderBookService {
 	@Autowired
 	private OrderBookRepository orderBookRepository;
 	
+
 	
 	@Override
 	public OrderBook newOrder(OrderBook orderBook) {
@@ -54,5 +58,10 @@ public class OrderBookServiceImpl implements OrderBookService {
 		// TODO Auto-generated method stub
 		return orderBookRepository.showOrderBookCustomerId(id);
 	}
+//	@Override
+//	public List<OrderBook> groupStocks(int stockId, int customerId) {
+//		// TODO Auto-generated method stub
+//		return orderBookRepository.groupStocks(stockId, customerId);
+//	}
 
 }

@@ -2,14 +2,13 @@ package com.ab.controllers;
 
 
 import java.util.List;
-import java.util.Optional;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -38,15 +37,9 @@ public class OrderBookController {
     	    	 	 
         List<OrderBook> orderBookCustomerList =  orderBookService.findCustomerOrders(customer.getCustomerId());
         System.out.println(orderBookCustomerList);
-//        List<OrderBook> groupStocks = orderBookService.groupStocks(stock.getStockId(), customer.getCustomerId());
         
-       
-		
-		
-		
 			mv.setViewName("portfolio");
 			mv.addObject("orderBookCustomerList",orderBookCustomerList); 
-//			mv.addObject("groupStocks",groupStocks); 
 
 			return mv;
 	

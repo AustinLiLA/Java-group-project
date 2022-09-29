@@ -3,6 +3,7 @@ package com.ab.controllers;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,9 +37,10 @@ public class OrderBookController {
     	    	 	 
         List<OrderBook> orderBookCustomerList =  orderBookService.findCustomerOrders(customer.getCustomerId());
         System.out.println(orderBookCustomerList);
-       	
+   
 			mv.setViewName("portfolio");
-			mv.addObject("orderBookCustomerList",orderBookCustomerList); 			
+			mv.addObject("orderBookCustomerList",orderBookCustomerList); 
+
 
 			return mv;
 	

@@ -58,6 +58,4 @@ public class OrderBookServiceImpl implements OrderBookService {
 		// TODO Auto-generated method stub
 		return orderBookRepository.showOrderBookCustomerId(id);
 	}
-
-
 }

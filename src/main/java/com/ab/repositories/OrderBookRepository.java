@@ -15,11 +15,10 @@ import com.ab.models.OrderBook;
 @EnableJpaRepositories
 @Repository
 public interface OrderBookRepository  extends JpaRepository<OrderBook, Integer> {
-
-	
 @Transactional
- @Query(value ="SELECT order_id,customer_id,order_price, SUM(order_price) as sum_order_price,order_quantity, sum(order_quantity) as sum_order_quantity,order_type,stock_id,stock_region,  timestamp\n"
- 		+ " FROM  order_Book ob WHERE ob.customer_Id = :customerId GROUP BY ob.stock_Id", nativeQuery = true)
+
+ @Query(value ="SELECT order_id,customer_id,SUM(order_price) as order_price,sum(order_quantity) as order_quantity,order_type, stock_id,stock_region, timestamp FROM  Order_Book ob WHERE ob.customer_Id = :customerId GROUP BY ob.stock_Id", nativeQuery = true)
+
 public List<OrderBook> showOrderBookCustomerId(@Param("customerId")int customerId);
 }
 

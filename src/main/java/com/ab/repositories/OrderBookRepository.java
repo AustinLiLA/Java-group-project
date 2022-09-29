@@ -23,10 +23,9 @@ public interface OrderBookRepository  extends JpaRepository<OrderBook, Integer> 
 public List<OrderBook> showOrderBookCustomerId(@Param("customerId")int customerId);
 	
 
-//@Transactional
-//@Query("FROM OrderBook ob where ob.customerId = :customerId")
-//@Query(value = "select *,count(OrderBook.customerId) as numberOfOrders from OrderBook",nativeQuery = true)
-//public List<OrderBook> groupStocks(@Param("stockId")int stockId,@Param("customerId") int customerId);
-//}
+//Query example
+//SELECT order_id,customer_id,SUM(order_price),sum(order_quantity),order_type,stock_region
+//FROM order_book
+//GROUP BY customer_id
 
 }

@@ -34,9 +34,6 @@ public class CustomerMappingController {
 	private StockService stockService;
 	
 	
-	
-	
-	
 	@ModelAttribute
 	public Customer customer() {
 		

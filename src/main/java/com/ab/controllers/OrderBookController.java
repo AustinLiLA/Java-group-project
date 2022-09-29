@@ -35,7 +35,7 @@ public class OrderBookController {
     	ModelAndView mv = new ModelAndView();
     	    	 	 
         List<OrderBook> orderBookCustomerList =  orderBookService.findCustomerOrders(customer.getCustomerId());
-  
+        System.out.println(orderBookCustomerList);
 //        List<OrderBook> groupStocks = orderBookService.groupStocks(stock.getStockId(), customer.getCustomerId());
         
        

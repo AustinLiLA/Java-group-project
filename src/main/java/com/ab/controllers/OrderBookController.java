@@ -36,15 +36,9 @@ public class OrderBookController {
     	    	 	 
         List<OrderBook> orderBookCustomerList =  orderBookService.findCustomerOrders(customer.getCustomerId());
         System.out.println(orderBookCustomerList);
-//        List<OrderBook> groupStocks = orderBookService.groupStocks(stock.getStockId(), customer.getCustomerId());
-        
-       
-		
-		
-		
+       	
 			mv.setViewName("portfolio");
-			mv.addObject("orderBookCustomerList",orderBookCustomerList); 
-//			mv.addObject("groupStocks",groupStocks); 
+			mv.addObject("orderBookCustomerList",orderBookCustomerList); 			
 
 			return mv;
 	

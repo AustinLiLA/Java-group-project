@@ -58,10 +58,6 @@ public class OrderBookServiceImpl implements OrderBookService {
 		// TODO Auto-generated method stub
 		return orderBookRepository.showOrderBookCustomerId(id);
 	}
-//	@Override
-//	public List<OrderBook> groupStocks(int stockId, int customerId) {
-//		// TODO Auto-generated method stub
-//		return orderBookRepository.groupStocks(stockId, customerId);
-//	}
+
 
 }

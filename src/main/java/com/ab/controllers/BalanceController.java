@@ -23,7 +23,7 @@ public class BalanceController{
 	
 	//global ModelAndView variable
 		ModelAndView mv = new ModelAndView();
-	
+		
 	@GetMapping("balance")
 	public String balance() {
 		return "balance";	}

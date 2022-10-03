@@ -1,8 +1,5 @@
 package com.ab.models;
 
-
-
-
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
@@ -18,6 +15,7 @@ public class OrderBook {
 	private int orderQuantity;
 	private double orderPrice;
 	private String stockRegion;
+	private String stockName;
 	private LocalDateTime timestamp;
 	
 //	@OneToMany(cascade= CascadeType.ALL)
@@ -33,6 +31,20 @@ public class OrderBook {
 	}
 
 	
+	
+	public OrderBook(String orderType, int orderQuantity, double orderPrice, String stockRegion,
+			String stockName, LocalDateTime timestamp, int customerId, int stockId) {
+		super();
+		this.orderType = orderType;
+		this.orderQuantity = orderQuantity;
+		this.orderPrice = orderPrice;
+		this.stockRegion = stockRegion;
+		this.stockName = stockName;
+		this.timestamp = timestamp;
+		this.customerId = customerId;
+		this.stockId = stockId;
+	}
+
 	public OrderBook(int orderId, String orderType, int orderQuantity, double orderPrice, String stockRegion,
 			LocalDateTime timestamp, int customerId, int stockId) {
 		super();
@@ -186,6 +198,17 @@ public class OrderBook {
 
 	public void setTimestamp(LocalDateTime timestamp) {
 		this.timestamp = timestamp;
+	}
+
+	
+	
+	public void setStockName(String stockName) {
+		this.stockName = stockName;
+	}
+
+
+	public String getStockName() {
+		return stockName;
 	}
 
 

@@ -124,6 +124,7 @@
 							String email =(String)customer.getEmail();
 							
 									%>
+									
 
 <div class="flex items-center justify-center min-h-screen bg-blue-500">
     	<div class="px-8 py-6 mx-4 mt-4 text-left bg-white shadow-lg md:w-1/3 lg:w-1/3 sm:w-1/3  rounded-lg">
@@ -200,6 +201,9 @@
                 <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
                     <c:out value="${od.orderQuantity}" />
                 </td>
+                 <td class=" flex justify-center">
+            			<a href="http://localhost:8080/Sell/${od.stockId}/${od.stockRegion}/${od.stockName} " class="font-medium text-black-700 dark:text-blue-500 hover:underline"  >Sell</a>
+            		</td>
             </tr>
            </c:forEach>
         </tbody>

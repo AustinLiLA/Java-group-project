@@ -238,10 +238,9 @@ window.onload = function () {
   <div class="flex items-center justify-center min-h-screen bg-blue-500">
   <div class="px-8 py-6 mx-4 mt-4 text-left bg-white shadow-lg md:w-1/3 lg:w-1/3 sm:w-1/3  rounded-lg">
   
-<form action="/stocks/orderbook" method="POST">
+<form action="#" method="POST">
 <div class="mt-4">
   <label for="price"class="block">Stock Name: </label><strong class="flex items-center justify-center">${stock.stockName}</strong>
-  <input class="w-full px-2 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600 flex items-center" type="hidden" id="stockName" name="stockName" value="${stock.stockName}"><br>
   <input class="w-full px-2 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600 flex items-center" type="hidden" id="stockId" name="stockId" value="${stock.stockId}"><br>
   <input class="w-full px-2 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600 flex items-center"  id="stockRegion" name="stockRegion" value="${stock.stockRegion}"><br>
   <label for="price"class="block">Stock Price:</label>
@@ -250,7 +249,7 @@ window.onload = function () {
   <input class="w-full px-2 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"required type="number" id="quantity" name="quantity"><br>
   <label for="order"class="block">Order Type:</label>
   <select name="order" id="order">
-    <option value="buy" name="buy">Buy</option>
+    <option value="sell" name="sell">Sell</option>
   </select>
   <br><br>
   <button class="w-full px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900"type="submit" >Place Order</button>

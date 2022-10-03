@@ -10,5 +10,7 @@ public interface StockService {
 	
 	public List<Stock> displayStocks();
 	
+	public Optional<Stock> getStocks(int id);
+	
 
 }

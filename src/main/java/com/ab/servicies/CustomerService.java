@@ -11,9 +11,8 @@ public interface CustomerService {
 
 	public Customer registerCustomer(Customer c);
 	
-	public Optional<Customer> loginCustomer(String email, String password);
+	public Customer loginCustomer(String email, String password);
 	
-
-	
+	public void modifyCustomerBalance(double balance,int id);
 	
 }

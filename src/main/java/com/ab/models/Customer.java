@@ -19,6 +19,16 @@ public class Customer {
 		
 	}
 	
+	
+	
+
+	public Customer(Double balance) {
+		super();
+		this.balance = balance;
+	}
+
+
+
 
 	public Customer(int customerId, String firstName, String lastName, String email, String password) {
 		super();

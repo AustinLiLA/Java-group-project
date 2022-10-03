@@ -23,11 +23,17 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 
-	public Optional<Customer> loginCustomer(String email, String password) {
+	public Customer loginCustomer(String email, String password) {
 		
 		return customerRepository. findByRecord(email, password);
 
 
+	}
+
+	@Override
+	public void modifyCustomerBalance(double balance, int id) {
+		// TODO Auto-generated method stub
+		 customerRepository.modifyCustomerBalance(balance, id);
 	}
 
 	

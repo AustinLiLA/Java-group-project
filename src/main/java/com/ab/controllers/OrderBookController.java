@@ -26,10 +26,7 @@ public class OrderBookController {
 	
 	@Autowired
 	private OrderBookService orderBookService;
-	
-	
-	
-    
+	    
     @GetMapping("/portfolio")
     public ModelAndView getOrderBookCustomerId(@ModelAttribute("session_customer") Customer customer,@ModelAttribute("session_stock") Stock stock,Model model) {
     	Customer user = (Customer) model.getAttribute("session_customer");

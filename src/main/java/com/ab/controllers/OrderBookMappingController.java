@@ -1,4 +1,4 @@
-package com.ab.controllers;
+	package com.ab.controllers;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -39,7 +39,7 @@ public class OrderBookMappingController {
 	ModelAndView mv = new ModelAndView();
 	
     @PostMapping("/stocks/orderbook")
-	public ModelAndView newOrder(@RequestParam("order") String orderType,@RequestParam("quantity") int quantity,@RequestParam("price") double price,@RequestParam("stockRegion") String stockRegion,@RequestParam("stockId") int stockId, Model model) {
+	public ModelAndView newOrder(@RequestParam("order") String orderType,@RequestParam("quantity") int quantity,@RequestParam("price") double price,@RequestParam("stockRegion") String stockRegion,@RequestParam("stockName") String stockName,@RequestParam("stockId") int stockId, Model model) {
   	Customer user = (Customer) model.getAttribute("session_customer");
   	
   		if(user != null) {
@@ -47,8 +47,8 @@ public class OrderBookMappingController {
     	double currentBalance = user.getBalance();
 
   		if(currentBalance > (price*quantity)) {
-  			
-    	orderBookService.newOrder(new OrderBook(orderType,quantity,price,stockRegion,LocalDateTime.now(),user.getCustomerId(),stockId));
+  		
+    	orderBookService.newOrder(new OrderBook(orderType,quantity,price,stockRegion,stockName,LocalDateTime.now(),user.getCustomerId(),stockId));
     	
     	// TradingHistory
     	thService.newTradingHistory(new TradingHistory(orderType,quantity,price,LocalDateTime.now(),user.getCustomerId(),stockId));

@@ -29,11 +29,10 @@ public class OrderBookController {
 	    
     @GetMapping("/portfolio")
     public ModelAndView getOrderBookCustomerId(@ModelAttribute("session_customer") Customer customer,@ModelAttribute("session_stock") Stock stock,Model model) {
-    	Customer user = (Customer) model.getAttribute("session_customer");
+//    	Customer user = (Customer) model.getAttribute("session_customer");
     	ModelAndView mv = new ModelAndView();
     	    	 	 
         List<OrderBook> orderBookCustomerList =  orderBookService.findCustomerOrders(customer.getCustomerId());
-        System.out.println(orderBookCustomerList);
    
 			mv.setViewName("portfolio");
 			mv.addObject("orderBookCustomerList",orderBookCustomerList); 

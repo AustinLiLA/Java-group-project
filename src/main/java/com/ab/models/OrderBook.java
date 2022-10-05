@@ -16,7 +16,7 @@ public class OrderBook {
 	private double orderPrice;
 	private String stockRegion;
 	private String stockName;
-	private LocalDateTime timestamp;
+	private String timestamp;
 	
 //	@OneToMany(cascade= CascadeType.ALL)
 //	@JoinColumn(name = "FK_customerId")
@@ -33,7 +33,7 @@ public class OrderBook {
 	
 	
 	public OrderBook(String orderType, int orderQuantity, double orderPrice, String stockRegion,
-			String stockName, LocalDateTime timestamp, int customerId, int stockId) {
+			String stockName, String timestamp, int customerId, int stockId) {
 		super();
 		this.orderType = orderType;
 		this.orderQuantity = orderQuantity;
@@ -46,7 +46,7 @@ public class OrderBook {
 	}
 
 	public OrderBook(int orderId, String orderType, int orderQuantity, double orderPrice, String stockRegion,
-			LocalDateTime timestamp, int customerId, int stockId) {
+			String timestamp, int customerId, int stockId) {
 		super();
 		this.orderId = orderId;
 		this.orderType = orderType;
@@ -60,7 +60,7 @@ public class OrderBook {
 
 
 	public OrderBook(String orderType, int orderQuantity, double orderPrice, String stockRegion,
-			LocalDateTime timestamp, int customerId, int stockId) {
+			String timestamp, int customerId, int stockId) {
 		super();
 		this.orderType = orderType;
 		this.orderQuantity = orderQuantity;
@@ -191,12 +191,12 @@ public class OrderBook {
 	}
 
 
-	public LocalDateTime getTimestamp() {
+	public String getTimestamp() {
 		return timestamp;
 	}
 
 
-	public void setTimestamp(LocalDateTime timestamp) {
+	public void setTimestamp(String timestamp) {
 		this.timestamp = timestamp;
 	}
 

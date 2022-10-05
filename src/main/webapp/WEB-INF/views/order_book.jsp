@@ -112,12 +112,7 @@
                     <c:out value="${od.orderQuantity}" />
                 </td>
                 <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                   <!--  <c:out value="${od.timestamp}" /> -->
-                    
-                
-                <fmt:formatDate value="${od.timestamp }" pattern="dd MMM yyyy" />
-                
-                    
+                    <c:out value="${od.timestamp}"/>
                 </td>
             </tr>
            </c:forEach>

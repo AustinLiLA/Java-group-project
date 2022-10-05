@@ -16,6 +16,4 @@ import com.ab.models.Stock;
 @Repository
 public interface StockRepository extends JpaRepository<Stock, Integer>{
 
-	
 }
-//@Query(value = "SELECT d.customerId,count(*) FROM senseer.DEVICE_REGISTRATION d  where d.customerId is not null group by d.customerId", nativeQuery=true)

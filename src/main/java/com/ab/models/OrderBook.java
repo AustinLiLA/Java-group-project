@@ -1,11 +1,13 @@
 package com.ab.models;
 
-import javax.persistence.CascadeType;
+
+
+
+import java.time.LocalDateTime;
+
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+
 
 @Entity
 public class OrderBook {
@@ -15,6 +17,8 @@ public class OrderBook {
 	private String orderType;
 	private int orderQuantity;
 	private double orderPrice;
+	private String stockRegion;
+	private LocalDateTime timestamp;
 	
 //	@OneToMany(cascade= CascadeType.ALL)
 //	@JoinColumn(name = "FK_customerId")
@@ -23,22 +27,51 @@ public class OrderBook {
 //	@JoinColumn(name = "FK_stockId")
 	private int stockId;
 	
+<<<<<<< HEAD
 	private String stockName;
+=======
+	
+>>>>>>> 079a28e5a0a826d55e8f3e5ca8fdd92d901c6aa1
 	public OrderBook() {
 		super();
 	}
 
 	
+<<<<<<< HEAD
 	public OrderBook(int customerId,int orderId, String orderType, int orderQuantity, double orderPrice,  int stockId,
 			String stockName) {
+=======
+	public OrderBook(int orderId, String orderType, int orderQuantity, double orderPrice, String stockRegion,
+			LocalDateTime timestamp, int customerId, int stockId) {
+>>>>>>> 079a28e5a0a826d55e8f3e5ca8fdd92d901c6aa1
 		super();
 		this.orderId = orderId;
 		this.orderType = orderType;
 		this.orderQuantity = orderQuantity;
 		this.orderPrice = orderPrice;
+<<<<<<< HEAD
 		this.customerId = customerId;
 		this.stockId = stockId;
 		this.stockName = stockName;
+=======
+		this.stockRegion = stockRegion;
+		this.timestamp = timestamp;
+		this.customerId = customerId;
+		this.stockId = stockId;
+	}
+
+
+	public OrderBook(String orderType, int orderQuantity, double orderPrice, String stockRegion,
+			LocalDateTime timestamp, int customerId, int stockId) {
+		super();
+		this.orderType = orderType;
+		this.orderQuantity = orderQuantity;
+		this.orderPrice = orderPrice;
+		this.stockRegion = stockRegion;
+		this.timestamp = timestamp;
+		this.customerId = customerId;
+		this.stockId = stockId;
+>>>>>>> 079a28e5a0a826d55e8f3e5ca8fdd92d901c6aa1
 	}
 
 
@@ -77,6 +110,17 @@ public class OrderBook {
 		this.orderPrice = orderPrice;
 		this.customerId = customerId;
 		this.stockId = stockId;
+	}
+
+
+	
+
+
+	public OrderBook(String orderType, int orderQuantity, double orderPrice) {
+		super();
+		this.orderType = orderType;
+		this.orderQuantity = orderQuantity;
+		this.orderPrice = orderPrice;
 	}
 
 
@@ -140,17 +184,42 @@ public class OrderBook {
 	}
 
 
-	@Override
-	public String toString() {
-		return "OrderBook [orderId=" + orderId + ", orderType=" + orderType + ", orderQuantity=" + orderQuantity
-				+ ", orderPrice=" + orderPrice + "]";
+	public String getStockRegion() {
+		return stockRegion;
 	}
 
 
+	public void setStockRegion(String stockRegion) {
+		this.stockRegion = stockRegion;
+	}
+
+
+	public LocalDateTime getTimestamp() {
+		return timestamp;
+	}
+
+
+	public void setTimestamp(LocalDateTime timestamp) {
+		this.timestamp = timestamp;
+	}
+
+
+	@Override
+	public String toString() {
+		return "OrderBook [orderId=" + orderId + ", orderType=" + orderType + ", orderQuantity=" + orderQuantity
+				+ ", orderPrice=" + orderPrice + ", stockRegion=" + stockRegion + ", timestamp=" + timestamp
+				+ ", customerId=" + customerId + ", stockId=" + stockId + "]";
+	}
+
+
+<<<<<<< HEAD
 	public void setStockName(String stockName) {
 		this.stockName = stockName;
 		
 	}
+=======
+	
+>>>>>>> 079a28e5a0a826d55e8f3e5ca8fdd92d901c6aa1
 	
 	
 	

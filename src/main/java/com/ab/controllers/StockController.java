@@ -25,15 +25,15 @@ public class StockController {
 		
 		ModelAndView mv = new ModelAndView();
 		
+		
 		List<Stock> stocks = stockService.displayStocks();		
 		
 		
 		model.addAttribute("session_stock", stocks);
-		
 		mv.addObject("stockList",stocks); 
-		
 		mv.setViewName("stock_list");
-	
+		
+	System.out.println(stocks);
 		return mv; 
 		
 	}

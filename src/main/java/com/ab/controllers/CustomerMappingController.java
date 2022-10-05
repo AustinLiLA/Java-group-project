@@ -17,6 +17,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ab.models.Customer;
+import com.ab.models.OrderBook;
 import com.ab.models.Stock;
 import com.ab.servicies.CustomerService;
 import com.ab.servicies.StockService;
@@ -46,6 +47,8 @@ public class CustomerMappingController {
 		
 		return "login"; 
 	}
+	
+	
 	//Login Operation -POST	
   @PostMapping("/login")
   public ModelAndView loginProcess(@ModelAttribute Customer c, Model model ) {
@@ -92,11 +95,11 @@ public class CustomerMappingController {
 	
 	
 	//Registration-POST
- 
-  @GetMapping("/Register")
+  @GetMapping("/register")
   public String showRegistrationForm (){
   	return "register";
   }
+  
   
 	  @PostMapping("/registerCustomer")
 	    public String registerProcess(Customer c) {
@@ -104,15 +107,14 @@ public class CustomerMappingController {
 	    	Customer registeredCustomer = customerService.registerCustomer(c);
 	        	
 	    	if(registeredCustomer != null) {
-	    		
-	    		return "login";
+	    	 return "login";
 		   }
-	    	else {
-	    		return "register";
+	    	 return "register";
 	    	}
-	    }
+	    
 	  
-	  
+
+
 
 		
 }

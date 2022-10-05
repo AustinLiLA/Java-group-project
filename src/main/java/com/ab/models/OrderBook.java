@@ -1,8 +1,5 @@
 package com.ab.models;
 
-
-
-
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
@@ -18,6 +15,7 @@ public class OrderBook {
 	private int orderQuantity;
 	private double orderPrice;
 	private String stockRegion;
+	private String stockName;
 	private LocalDateTime timestamp;
 	
 //	@OneToMany(cascade= CascadeType.ALL)
@@ -27,33 +25,48 @@ public class OrderBook {
 //	@JoinColumn(name = "FK_stockId")
 	private int stockId;
 	
-<<<<<<< HEAD
-	private String stockName;
-=======
+
+
+
 	
->>>>>>> 079a28e5a0a826d55e8f3e5ca8fdd92d901c6aa1
+
 	public OrderBook() {
 		super();
 	}
 
 	
-<<<<<<< HEAD
+
 	public OrderBook(int customerId,int orderId, String orderType, int orderQuantity, double orderPrice,  int stockId,
 			String stockName) {
-=======
+
+	}
+	public OrderBook(String orderType, int orderQuantity, double orderPrice, String stockRegion,
+			String stockName, LocalDateTime timestamp, int customerId, int stockId) {
+		super();
+		this.orderType = orderType;
+		this.orderQuantity = orderQuantity;
+		this.orderPrice = orderPrice;
+		this.stockRegion = stockRegion;
+		this.stockName = stockName;
+		this.timestamp = timestamp;
+		this.customerId = customerId;
+		this.stockId = stockId;
+	}
+
+
 	public OrderBook(int orderId, String orderType, int orderQuantity, double orderPrice, String stockRegion,
 			LocalDateTime timestamp, int customerId, int stockId) {
->>>>>>> 079a28e5a0a826d55e8f3e5ca8fdd92d901c6aa1
+
 		super();
 		this.orderId = orderId;
 		this.orderType = orderType;
 		this.orderQuantity = orderQuantity;
 		this.orderPrice = orderPrice;
-<<<<<<< HEAD
+
 		this.customerId = customerId;
 		this.stockId = stockId;
 		this.stockName = stockName;
-=======
+
 		this.stockRegion = stockRegion;
 		this.timestamp = timestamp;
 		this.customerId = customerId;
@@ -71,7 +84,7 @@ public class OrderBook {
 		this.timestamp = timestamp;
 		this.customerId = customerId;
 		this.stockId = stockId;
->>>>>>> 079a28e5a0a826d55e8f3e5ca8fdd92d901c6aa1
+
 	}
 
 
@@ -203,6 +216,17 @@ public class OrderBook {
 		this.timestamp = timestamp;
 	}
 
+	
+	
+	public void setStockName(String stockName) {
+		this.stockName = stockName;
+	}
+
+
+	public String getStockName() {
+		return stockName;
+	}
+
 
 	@Override
 	public String toString() {
@@ -212,17 +236,13 @@ public class OrderBook {
 	}
 
 
-<<<<<<< HEAD
-	public void setStockName(String stockName) {
-		this.stockName = stockName;
-		
+
 	}
-=======
-	
->>>>>>> 079a28e5a0a826d55e8f3e5ca8fdd92d901c6aa1
-	
+
+
 	
 	
 	
 	
-}
+	
+

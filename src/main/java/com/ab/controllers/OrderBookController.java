@@ -4,6 +4,7 @@ package com.ab.controllers;
 import java.util.List;
 import java.util.Set;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,8 +29,7 @@ public class OrderBookController {
 	
 	@Autowired
 	private OrderBookService orderBookService;
-	
-<<<<<<< HEAD
+
 	@PostMapping("/stocks/orderbook")
 	public OrderBook newOrder(@RequestParam("orderId") int orderId, @RequestParam("orderType") String orderType, @RequestParam("Price") double price, @RequestParam("quantity") int quantity,@RequestParam("stockId") int stockId, @RequestParam("stockName") String stockName, @ModelAttribute("session_customer") Customer customer, @ModelAttribute("session_stock") List<Stock> stock) {
 		
@@ -55,28 +55,43 @@ public class OrderBookController {
 		ModelAndView mv = new ModelAndView();
 		
 		List<OrderBook> orderBookList = orderBookService.displayOrderBooks();		
-=======
-	
+
+	}
     @GetMapping("/stocks/orderbookShow")
     public ModelAndView getOrderBook() {
 
     	ModelAndView mv = new ModelAndView();
     	 	 
         List<OrderBook> orderBookList =  orderBookService.displayOrderBooks();
->>>>>>> 079a28e5a0a826d55e8f3e5ca8fdd92d901c6aa1
+
 		
 		System.out.println(orderBookList);
 		mv.addObject("orderBookList",orderBookList); 
 		
 		mv.setViewName("order_book");
 	
-		return mv; 
-
+		return mv;
     }
+	    
+    @GetMapping("/portfolio")
+    public ModelAndView getOrderBookCustomerId(@ModelAttribute("session_customer") Customer customer,@ModelAttribute("session_stock") Stock stock,Model model) {
+    	Customer user = (Customer) model.getAttribute("session_customer");
+    	ModelAndView mv = new ModelAndView();
+    	    	 	 
+        List<OrderBook> orderBookCustomerList =  orderBookService.findCustomerOrders(customer.getCustomerId());
+        System.out.println(orderBookCustomerList);
+   
+			mv.setViewName("portfolio");
+			mv.addObject("orderBookCustomerList",orderBookCustomerList); 
+
+
+
+			return mv;
+	
 
     
-	
-	
-	
 }
+}
+	
+
 

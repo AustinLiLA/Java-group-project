@@ -3,8 +3,10 @@
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.ParseException;
+
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,10 +46,10 @@ public class OrderBookMappingController {
 	
     @PostMapping("/stocks/orderbook")
 	public ModelAndView newOrder(@RequestParam("order") String orderType,@RequestParam("quantity") int quantity,@RequestParam("price") double price,@RequestParam("stockRegion") String stockRegion,@RequestParam("stockName") String stockName,@RequestParam("stockId") int stockId, Model model) {
+
   	Customer user = (Customer) model.getAttribute("session_customer");
   	String myString= LocalDateTime.now().toString().replace('T',' ');
-  
-  	
+
   	
   		if(user != null) {
   		

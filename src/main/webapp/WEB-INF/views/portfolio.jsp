@@ -110,6 +110,7 @@
 						</button>
 					<div class="dropdown-content">
  					<a href="http://localhost:8080/portfolio">Portfolio</a>
+ 					<a href="http://localhost:8080/stocks/tradinghistory">Trading History</a>
  					<a href="http://localhost:8080/logout">Logout</a>
 					</div>
 					</a></li>

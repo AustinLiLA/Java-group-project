@@ -216,53 +216,7 @@
 
 
 
-<%-- <hr>
-<div class="overflow-x-auto relative shadow-md sm:rounded-lg  min-h-screen bg-blue-500">
-<form action="http://localhost:8080/portfolio" method="get">
-    <table class="w-full text-sm text-left text-black-500 dark:text-black-400">
-        <thead class="text-xs text-black-700 uppercase dark:text-black-500">
-            <tr>
-                <th scope="col" class="py-3 px-6 bg-black-50 dark:bg-black-800">
-                    ID
-                </th>
-                <th scope="col" class="py-3 px-6">
-                    STOCK ID
-                </th>
-                <th scope="col" class="py-3 px-6 bg-gray-50 dark:bg-gray-800">
-                    REGION
-                </th>
-                <th scope="col" class="py-3 px-6 bg-gray-50 dark:bg-gray-800">
-                    PRICE
-                </th>
-                <th scope="col" class="py-3 px-6 bg-gray-50 dark:bg-gray-800">
-                    QUANTITY
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-        <c:forEach items="${groupStocks}" var="gp">
-            <tr class="border-b border-gray-200 dark:border-gray-700">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                    <c:out value="${gp.orderId}" />
-                </th>
-                <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                    <c:out value="${gp.stockId}" />
-                </td>
-                <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                    <c:out value="${gp.stockRegion}" />
-                </td>
-                <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                    <c:out value="${gp.orderPrice}" />
-                </td>
-                <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                    <c:out value="${gp.orderQuantity}" />
-                </td>
-            </tr>
-           </c:forEach>
-        </tbody>
-    </table>
-    </form>
-</div>  --%>
+
 
 </body>
 </html>

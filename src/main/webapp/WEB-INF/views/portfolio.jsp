@@ -110,6 +110,7 @@
 						</button>
 					<div class="dropdown-content">
  					<a href="http://localhost:8080/portfolio">Portfolio</a>
+ 					<a href="http://localhost:8080/stocks/tradinghistory">Trading History</a>
  					<a href="http://localhost:8080/logout">Logout</a>
 					</div>
 					</a></li>
@@ -203,7 +204,7 @@
                     <c:out value="${od.orderQuantity}" />
                 </td>
                  <td class=" flex justify-center">
-            			<a href="http://localhost:8080/Sell/${od.stockId}/${od.stockRegion}/${od.stockName} " class="font-medium text-black-700 dark:text-blue-500 hover:underline"  >Sell</a>
+            			<a href="http://localhost:8080/Sell/${od.stockId}/${od.stockRegion}/${od.stockName}" class="font-medium text-black-700 dark:text-blue-500 hover:underline"  >Sell</a>
             		</td>
             </tr>
            </c:forEach>
@@ -211,6 +212,7 @@
     </table>
     </form>
 </div> 
+
 
 
 
@@ -261,5 +263,6 @@
     </table>
     </form>
 </div>  --%>
+
 </body>
 </html>

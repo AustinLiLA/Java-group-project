@@ -107,6 +107,7 @@
 					<div class="dropdown-content opacity-75">
  					<a href="http://localhost:8080/portfolio">Portfolio</a>
  					<a href="http://localhost:8080/balance">Balance</a>
+ 					<a href="http://localhost:8080/stocks/tradinghistory">Trading History</a>
  					<a href="http://localhost:8080/logout">Logout</a>
 					</div>
 					</a></li>

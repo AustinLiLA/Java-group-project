@@ -30,49 +30,8 @@ public class OrderBookController {
 	@Autowired
 	private OrderBookService orderBookService;
 
-	@PostMapping("/stocks/orderbook")
-	public OrderBook newOrder(@RequestParam("orderId") int orderId, @RequestParam("orderType") String orderType, @RequestParam("Price") double price, @RequestParam("quantity") int quantity,@RequestParam("stockId") int stockId, @RequestParam("stockName") String stockName, @ModelAttribute("session_customer") Customer customer, @ModelAttribute("session_stock") List<Stock> stock) {
-		
-		OrderBook ob = null ;
-		
-		ob.setOrderId(orderId);
-		ob.setOrderType(orderType);
-		ob.setOrderPrice(price);
-		ob.setOrderQuantity(quantity);
-		ob.setStockId(stockId);
-		ob.setStockName(stockName);
-		
-		
-	    OrderBook ob1 = new OrderBook(customer.getCustomerId(), ob.getOrderId(), ob.getOrderType(), ob.getOrderQuantity(),ob.getOrderPrice(), stock.get(0).getStockId(),stock.get(0).getStockName());
-		
-		return orderBookService.newOrder(ob1);
-		
-	}
-
-	@GetMapping("/stocks/orderbook/{customerId}/{orderId}/{orderType}/{Price}/{quantity}/{stockId}/{stockName}")
-	public ModelAndView allOrderBooks(){
-		
-		ModelAndView mv = new ModelAndView();
-		
-		List<OrderBook> orderBookList = orderBookService.displayOrderBooks();
-		return mv;		
-
-	}
-    @GetMapping("/stocks/orderbookShow")
-    public ModelAndView getOrderBook() {
-
-    	ModelAndView mv = new ModelAndView();
-    	 	 
-        List<OrderBook> orderBookList =  orderBookService.displayOrderBooks();
-
-		
-		System.out.println(orderBookList);
-		mv.addObject("orderBookList",orderBookList); 
-		
-		mv.setViewName("order_book");
 	
-		return mv;
-    }
+
 	    
     @GetMapping("/portfolio")
     public ModelAndView getOrderBookCustomerId(@ModelAttribute("session_customer") Customer customer,@ModelAttribute("session_stock") Stock stock,Model model) {

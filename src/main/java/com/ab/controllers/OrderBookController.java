@@ -54,7 +54,8 @@ public class OrderBookController {
 		
 		ModelAndView mv = new ModelAndView();
 		
-		List<OrderBook> orderBookList = orderBookService.displayOrderBooks();		
+		List<OrderBook> orderBookList = orderBookService.displayOrderBooks();
+		return mv;		
 
 	}
     @GetMapping("/stocks/orderbookShow")

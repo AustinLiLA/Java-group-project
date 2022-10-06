@@ -15,7 +15,7 @@ public class TradingHistory {
 	private int tradingQuantity;
 	private double tradingPrice;
 
-	private LocalDateTime tradingTimestamp;
+	private String tradingTimestamp;
 	
 //	@OneToMany(cascade= CascadeType.ALL)
 //	@JoinColumn(name = "FK_customerId")
@@ -30,7 +30,7 @@ public class TradingHistory {
 	}
 	
 	public TradingHistory(String tradingType, int tradingQuantity, double tradingPrice,
-			LocalDateTime tradingTimestamp, int customerId, int stockId) {
+			String tradingTimestamp, int customerId, int stockId) {
 
 		this.tradingType = tradingType;
 		this.tradingQuantity = tradingQuantity;
@@ -53,7 +53,7 @@ public class TradingHistory {
 	public void setTradingPrice(double tradingPrice) {
 		this.tradingPrice = tradingPrice;
 	}
-	public void setTimestamp(LocalDateTime timestamp) {
+	public void setTimestamp(String timestamp) {
 		this.tradingTimestamp = timestamp;
 	}
 	public void setCustomerId(int customerId) {
@@ -76,7 +76,7 @@ public class TradingHistory {
 	public double getTradingPrice() {
 		return tradingPrice;
 	}
-	public LocalDateTime getTimestamp() {
+	public String getTimestamp() {
 		return tradingTimestamp;
 	}
 	public int getCustomerId() {

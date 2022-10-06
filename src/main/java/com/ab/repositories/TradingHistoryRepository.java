@@ -21,4 +21,7 @@ public interface TradingHistoryRepository extends JpaRepository<TradingHistory, 
 	@Transactional
 	@Query("From TradingHistory th WHERE th.customerId = :customerId")
 	public List<TradingHistory> filterTradingHistoryByCustomerId(@Param("customerId") int customerId);
+	
+	 
+
 }

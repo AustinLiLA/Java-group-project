@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ab.models.Customer;
 import com.ab.models.TradingHistory;
-import com.ab.servicies.TradingHistoryService;
+import com.ab.services.TradingHistoryService;
 
 
 @SessionAttributes({"session_customer"})

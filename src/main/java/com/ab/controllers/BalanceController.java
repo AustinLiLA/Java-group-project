@@ -14,12 +14,10 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ab.models.Customer;
-
-import com.ab.models.OrderBook;
+import com.ab.models.MarketOrder;
 import com.ab.models.Stock;
-
-import com.ab.servicies.CustomerService;
-import com.ab.servicies.OrderBookService;
+import com.ab.services.CustomerService;
+import com.ab.services.MarketOrderService;
 
 @SessionAttributes({"session_customer"})
 @Controller
@@ -29,7 +27,7 @@ public class BalanceController{
 	private CustomerService customerService;
 	
 	@Autowired
-	private OrderBookService orderBookService;
+	private MarketOrderService marketOrderService;
 	
 	//global ModelAndView variable
 		ModelAndView mv = new ModelAndView();
@@ -51,7 +49,7 @@ public class BalanceController{
 		customerService.modifyCustomerBalance(depositBalance, user.getCustomerId());
 		
 		model.addAttribute("session_customer", new Customer(user.getCustomerId(),user.getFirstName(),user.getLastName(),user.getEmail(),user.getPassword(),depositBalance));
-		List<OrderBook> orderBookCustomerList =  orderBookService.findCustomerOrders(customer.getCustomerId());
+		List<MarketOrder> orderBookCustomerList =  marketOrderService.findCustomerOrders(customer.getCustomerId());
         System.out.println(orderBookCustomerList);
         
         mv.addObject("orderBookCustomerList",orderBookCustomerList); 
@@ -77,10 +75,10 @@ public class BalanceController{
 		
 		model.addAttribute("session_customer", new Customer(user.getCustomerId(),user.getFirstName(),user.getLastName(),user.getEmail(),user.getPassword(),withdrawBalance));
 		
-		List<OrderBook> orderBookCustomerList =  orderBookService.findCustomerOrders(customer.getCustomerId());
-        System.out.println(orderBookCustomerList);
+		List<MarketOrder> marketOrderCustomerList =  marketOrderService.findCustomerOrders(customer.getCustomerId());
+        System.out.println(marketOrderCustomerList);
         
-        mv.addObject("orderBookCustomerList",orderBookCustomerList); 
+        mv.addObject("marketOrderCustomerList",marketOrderCustomerList); 
 		mv.addObject("user",user); 
 		mv.setViewName("portfolio");	
 		return mv; 

@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-<title>Order Book Show</title>
+<title>Insert title here</title>
 </head>
 <body>
 <center><label><h1><b>${marketOrder.price}</b></h1></label></center>
@@ -46,6 +45,10 @@
 			</div>
 		</div>
 	</nav>
+
+
+OrderBook
+
 <div class="p-20">
 	<table border="1"
 		class="flex justify-center table-auto border-separate border-spacing-2 border border-slate-500 ">
@@ -54,28 +57,26 @@
      <th class="border border-slate-700">ID</th>
      <th class="border border-slate-700">STOCK ID</th>
      <th class="border border-slate-700">CUSTOMER ID</th>
-     <th class="border border-slate-700">REGION</th>
      <th class="border border-slate-700">TYPE</th>
      <th class="border border-slate-700">PRICE</th>
      <th class="border border-slate-700">QUANTITY</th>
-     <th class="border border-slate-700">TIMESTAMP</th>
  
      
   </tr>
     <c:forEach items="${marketOrderList}" var="mkt">
         <tr>
-            <td class="border border-slate-800"><c:out value="${mkt.orderId}" /></td>
+            <td class="border border-slate-800"><c:out value="${mkt.marketOrderId}" /></td>
             <td class="border border-slate-800"><c:out value="${mkt.stockId}" /></td>
             <td class="border border-slate-800"><c:out value="${mkt.customerId}" /></td>
-            <td class="border border-slate-800"><c:out value="${mkt.stockRegion}" /></td>
-            <td class="border border-slate-800"><c:out value="${mkt.orderType}" /></td>
-            <td class="border border-slate-800"><c:out value="${mkt.orderPrice}" /></td>
-            <td class="border border-slate-800"><c:out value="${mkt.orderQuantity}" /></td>
-            <td class="border border-slate-800"><c:out value="${mkt.orderTimeStamp}" /></td>
+            <td class="border border-slate-800"><c:out value="${mkt.marketOrderType}" /></td>
+            <td class="border border-slate-800"><c:out value="${mkt.marketOrderPrice}" /></td>
+            <td class="border border-slate-800"><c:out value="${mkt.marketOrderQuantity}" /></td>
             
+            
+            <td class="border border-slate-800"><button type="button" onclick="location.href='http://localhost:8080/stocks/chart/${s.stockId}/${s.stockName}/${s.stockQuantity}/${s.stockRegion}';">View</button></td>
         </tr>
     </c:forEach>
-    </table>
 		</div>
+
 </body>
 </html>

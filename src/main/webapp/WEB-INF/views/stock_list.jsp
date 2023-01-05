@@ -65,7 +65,7 @@
 			<% } else {%>
 					<a  class="flex" href="http://localhost:8080/stocks"> <span
 				class="flex justify-center text-1xl font-semibold whitespace-nowrap dark:text-white bg-blue-300">
-				Balance: ------
+				<!--  No Balance-->
 				</span>
 			</a>
 			<% } %>
@@ -82,9 +82,9 @@
 						>Register</a>
 					</li>
 					<% } else {%>
-						<li><a href="http://localhost:8080/stocks/orderbook" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+						<!-- <li><a href="http://localhost:8080/stocks/trading_data" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
 						aria-current="page"
-						>Order Book</a></li>
+						>Order Book</a></li> -->
 						<!-- dropdown -->
 						<div class="dropdown">
 						<button class="dropbtn block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white">

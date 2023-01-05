@@ -100,7 +100,7 @@
 						aria-current="page">Stocks</a></li>
 						
 					<div class="dropdown">
-						 	<li><a href="http://localhost:8080/stocks/orderbookCustomerId" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+						 	<li><a href="http://localhost:8080/stocks/marketOrderCustomerId" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
 						aria-current="page"
 						>
 						<button class="dropbtn">
@@ -186,25 +186,25 @@
             </tr>
         </thead>
         <tbody>
-        <c:forEach items="${orderBookCustomerList}" var="od">
+        <c:forEach items="${marketOrderCustomerList}" var="mkt">
             <tr class="border-b border-gray-200 dark:border-gray-700">
                 <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                    <c:out value="${od.orderId}" />
+                    <c:out value="${mkt.mktOrderId}" />
                 </th>
                 <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                    <c:out value="${od.stockId}" />
+                    <c:out value="${mkt.stockId}" />
                 </td>
                 <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                    <c:out value="${od.stockRegion}" />
+                    <c:out value="${mkt.stockRegion}" />
                 </td>
                 <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                    <c:out value="${od.orderPrice}" />
+                    <c:out value="${mkt.mktOrderPrice}" />
                 </td>
                 <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                    <c:out value="${od.orderQuantity}" />
+                    <c:out value="${mkt.mktOrderQuantity}" />
                 </td>
                  <td class=" flex justify-center">
-            			<a href="http://localhost:8080/Sell/${od.stockId}/${od.stockRegion}/${od.stockName}" class="font-medium text-black-700 dark:text-blue-500 hover:underline"  >Sell</a>
+            			<a href="http://localhost:8080/Sell/${mkt.stockId}/${mkt.stockRegion}/${mkt.stockName}" class="font-medium text-black-700 dark:text-blue-500 hover:underline"  >Sell</a>
             		</td>
             </tr>
            </c:forEach>

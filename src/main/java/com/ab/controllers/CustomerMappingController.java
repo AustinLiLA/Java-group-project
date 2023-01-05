@@ -16,8 +16,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ab.models.Customer;
 import com.ab.models.Stock;
-import com.ab.servicies.CustomerService;
-import com.ab.servicies.StockService;
+import com.ab.services.CustomerService;
+import com.ab.services.StockService;
 
 
 

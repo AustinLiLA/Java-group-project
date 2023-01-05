@@ -11,9 +11,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<center><label><h1><b>${orderbook.price}</b></h1></label></center>
-<center><label><h1><b>${orderbook.quantity}</b></h1></label></center>
-<center><label><h1><b>${orderbook.order}</b></h1></label></center>
+<center><label><h1><b>${marketOrder.price}</b></h1></label></center>
+<center><label><h1><b>${marketOrder.quantity}</b></h1></label></center>
+<center><label><h1><b>${marketOrder.order}</b></h1></label></center>
 <!-- NAVBAR -->
 	<nav
 		class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
@@ -61,43 +61,6 @@
 		</div>
 	</nav>
 
-<%-- 
-<div class="p-20">
-	<table border="1"
-		class="flex justify-center table-auto border-separate border-spacing-2 border border-slate-500 ">
-		
-		<tr>
-     <th class="border border-slate-700">ID</th>
-     <th class="border border-slate-700">STOCK ID</th>
-     <th class="border border-slate-700">CUSTOMER ID</th>
-     <th class="border border-slate-700">REGION</th>
-     <th class="border border-slate-700">TYPE</th>
-     <th class="border border-slate-700">
-     <a href="/stocks/orderInsert/orderByPrice">PRICE</a>
-     </th>
-          <th class="border border-slate-700">
-     <a href="/stocks/orderInsert/orderByQuantity">QUANTITY</a>
-     </th>
-     <th class="border border-slate-700">TIMESTAMP</th>
-     
- 
-     
-  </tr>
-    <c:forEach items="${orderBookList}" var="od">
-        <tr>
-            <td class="border border-slate-800"><c:out value="${od.orderId}" /></td>
-            <td class="border border-slate-800"><c:out value="${od.stockId}" /></td>
-            <td class="border border-slate-800"><c:out value="${od.customerId}" /></td>
-            <td class="border border-slate-800"><c:out value="${od.stockRegion}" /></td>
-            <td class="border border-slate-800"><c:out value="${od.orderType}" /></td>
-            <td class="border border-slate-800"><c:out value="${od.orderPrice}" /></td>
-            <td class="border border-slate-800"><c:out value="${od.orderQuantity}"/></td>
-             <td class="border border-slate-800"><c:out value="${od.timestamp}"/></td> 
-        </tr>
-    </c:forEach>
-    </table>
-</div> --%>
-
  <div class="overflow-x-auto relative shadow-md sm:rounded-lg  min-h-screen bg-blue-500">
     <table class="w-full text-sm text-left text-black-500 dark:text-black-400">
         <thead class="text-xs text-black-700 uppercase dark:text-black-500">
@@ -129,31 +92,31 @@
             </tr>
         </thead>
         <tbody>
-        <c:forEach items="${orderBookList}" var="od">
+        <c:forEach items="${marketOrderList}" var="mkt">
             <tr class="border-b border-gray-200 dark:border-gray-700">
                 <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                    <c:out value="${od.orderId}" />
+                    <c:out value="${mkt.mktOrderId}" />
                 </th>
                 <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                    <c:out value="${od.stockId}" />
+                    <c:out value="${mkt.stockId}" />
                 </td>
                 <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                    <c:out value="${od.customerId}" />
+                    <c:out value="${mkt.customerId}" />
                 </td>
                 <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                    <c:out value="${od.stockRegion}" />
+                    <c:out value="${mkt.stockRegion}" />
                 </td>
                 <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                    <c:out value="${od.orderType}" />
+                    <c:out value="${mkt.mktOrderType}" />
                 </td>
                 <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                    <c:out value="${od.orderPrice}" />
+                    <c:out value="${mkt.mktOrderPrice}" />
                 </td>
                 <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                    <c:out value="${od.orderQuantity}" />
+                    <c:out value="${mkt.mktOrderQuantity}" />
                 </td>
                 <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                    <c:out value="${od.timestamp}" />
+                    <c:out value="${mkt.timestamp}" />
                 </td>
             </tr>
            </c:forEach>
